@@ -47,10 +47,10 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 building-3d">
           {projects.map((project) => (
-            <div key={project.id} className="group">
-              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <div key={project.id} className="group floating-3d">
+              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-2xl transition-all duration-500 building-card-3d">
                 {/* Project Image */}
                 <div className="relative overflow-hidden h-80">
                   <img 
