@@ -31,128 +31,123 @@ const About = () => {
     }
   ];
 
-  const values = [
+  const services = [
     {
-      title: "CRAFTING PERFECTION WITH PRECISION",
-      description: "Exceptional Construction Quality and Premium Craftsmanship for Enduring Elegance.",
-      highlight: "Premium Quality"
+      title: "Design",
+      description: "Architectural Excellence",
+      items: ["Premium Design", "Space Planning", "Interior Concepts"]
     },
     {
-      title: "CULTIVATING VALUE FOR A SECURE FUTURE",
-      description: "Dive into Financial Wisdom where each Investment is a Strategic move towards Prosperous Tomorrow.",
-      highlight: "Smart Investment"
+      title: "Development", 
+      description: "Quality Construction",
+      items: ["Project Management", "Quality Assurance", "Timeline Delivery"]
     },
     {
-      title: "ELEVATE YOUR LIFESTYLE",
-      description: "Experience the Epitome of Sophistication and Opulent Living with Our Elite Neighborhoods.",
-      highlight: "Luxury Living"
+      title: "Investment",
+      description: "Strategic Guidance", 
+      items: ["Market Analysis", "ROI Planning", "Investment Advisory"]
     }
   ];
 
   return (
-    <section id="about" className="py-24 building-3d">
+    <section id="about" className="py-32 bg-gradient-subtle">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-20 parallax-3d">
-          <Badge variant="outline" className="mb-6 text-primary border-primary floating-3d">
-            About Us
-          </Badge>
-          <h2 className="font-heading font-bold text-5xl md:text-6xl text-secondary mb-8 depth-layer-2">
-            WELCOME TO VASTVIK REALTY
+        
+        {/* Leo9 Style Header */}
+        <div className="text-center mb-32 leo9-text-reveal">
+          <div className="mb-8">
+            <span className="text-xs uppercase tracking-wider text-muted-foreground font-medium">About Us</span>
+          </div>
+          <h2 className="font-heading font-bold text-5xl md:text-7xl text-foreground mb-12 leading-tight">
+            <span style={{ animationDelay: '0.1s' }}>We are a global</span><br/>
+            <span style={{ animationDelay: '0.2s' }}>creative agency that</span><br/>
+            <span style={{ animationDelay: '0.3s' }}>combines design expertise</span><br/>
+            <span style={{ animationDelay: '0.4s' }}>with technology</span>
           </h2>
-          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed depth-layer-3">
-            YOUR GATEWAY TO PREMIUM HOMES AND EXCLUSIVE LIVING EXPERIENCES
-          </p>
         </div>
 
-        {/* Core Values */}
-        <div className="mb-24">
-          <div className="grid md:grid-cols-3 gap-12 building-3d">
-            {values.map((value, index) => (
-              <div key={index} className="text-center group floating-3d" style={{ animationDelay: `${index * 0.5}s` }}>
-                <div className="building-card-3d">
-                  <Badge className="bg-primary/10 text-primary border-primary/20 mb-6 pulse-3d">
-                    {value.highlight}
-                  </Badge>
-                  <h3 className="font-heading font-bold text-3xl text-secondary mb-6 leading-tight depth-layer-1">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    {value.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-3 gap-16 mb-32">
+          {services.map((service, index) => (
+            <div key={index} className="text-center leo9-reveal" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
+              <h3 className="font-heading font-bold text-4xl md:text-5xl text-foreground mb-4">
+                {service.title}
+              </h3>
+              <p className="text-muted-foreground text-lg mb-8 font-light">
+                {service.description}
+              </p>
+              <ul className="space-y-3">
+                {service.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="text-sm uppercase tracking-wider text-muted-foreground font-medium">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Crafted Homes Section */}
-        <div className="mb-24">
-          <div className="text-center mb-20 parallax-3d">
-            <h2 className="font-heading font-bold text-5xl md:text-6xl text-secondary mb-8 depth-layer-2">
-              CRAFTED HOMES
-            </h2>
-            <p className="text-2xl text-muted-foreground max-w-4xl mx-auto depth-layer-3">
-              DISCOVER LUXURY IN EVERY DETAIL AT VASTVIK REALTY'S CRAFTED HOMES
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 building-3d">
-            {features.slice(0, 3).map((feature, index) => (
-              <div key={index} className="group floating-3d" style={{ animationDelay: `${index * 0.3}s` }}>
-                <div className="card-shadow rounded-3xl p-10 bg-card hover:shadow-3d transition-all duration-500 building-card-3d h-full">
-                  <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 morph-3d">
-                    <feature.icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="font-heading font-bold text-2xl text-secondary mb-6">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-10 mt-12 max-w-5xl mx-auto building-3d">
-            {features.slice(3).map((feature, index) => (
-              <div key={index + 3} className="group floating-3d" style={{ animationDelay: `${(index + 3) * 0.3}s` }}>
-                <div className="card-shadow rounded-3xl p-10 bg-card hover:shadow-3d transition-all duration-500 building-card-3d h-full">
-                  <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 morph-3d">
-                    <feature.icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="font-heading font-bold text-2xl text-secondary mb-6">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Large Text Section */}
+        <div className="text-center mb-32 leo9-reveal">
+          <h3 className="font-heading font-light text-3xl md:text-4xl text-foreground leading-relaxed max-w-5xl mx-auto">
+            Vastvik Realty specializes in creating exceptional living experiences through innovative design, 
+            quality construction, and strategic locations in Bangalore's most prestigious neighborhoods.
+          </h3>
         </div>
 
-        {/* Gateway to Prestige */}
-        <div className="text-center bg-gradient-card rounded-3xl p-16 card-shadow building-card-3d parallax-3d">
-          <h2 className="font-heading font-bold text-5xl text-secondary mb-8 depth-layer-2">
-            YOUR GATEWAY TO PRESTIGE
-          </h2>
-          <p className="text-2xl text-muted-foreground mb-10 max-w-4xl mx-auto depth-layer-3">
-            Explore Our Crafted Residences and Exclusive Estates Strategically Located in Prime Locations.
-          </p>
-          <p className="text-3xl font-bold text-secondary mb-10 depth-layer-1">
-            DISCOVER BENGALURU'S FINEST AT VASTVIK REALTY
-          </p>
-          <p className="text-xl text-primary font-semibold mb-12">
-            CRAFTED HOMES, SMART INVESTMENTS, AND ENDURING PROSPERITY.
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-32">
+          {features.slice(0, 3).map((feature, index) => (
+            <div key={index} className="group leo9-reveal" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+              <div className="p-8 bg-card minimal-shadow hover:elevated-shadow transition-all duration-500 leo9-scale">
+                <div className="w-12 h-12 bg-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h4 className="font-heading font-bold text-xl text-foreground mb-4 uppercase tracking-wider">
+                  {feature.title}
+                </h4>
+                <p className="text-muted-foreground leading-relaxed font-light">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto mb-32">
+          {features.slice(3).map((feature, index) => (
+            <div key={index + 3} className="group leo9-reveal" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
+              <div className="p-8 bg-card minimal-shadow hover:elevated-shadow transition-all duration-500 leo9-scale">
+                <div className="w-12 h-12 bg-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h4 className="font-heading font-bold text-xl text-foreground mb-4 uppercase tracking-wider">
+                  {feature.title}
+                </h4>
+                <p className="text-muted-foreground leading-relaxed font-light">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center leo9-reveal">
+          <div className="mb-8">
+            <span className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Ready to Start?</span>
+          </div>
+          <h3 className="font-heading font-bold text-4xl md:text-5xl text-foreground mb-8">
+            Discover Bengaluru's Finest
+          </h3>
+          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto font-light">
+            Crafted homes, smart investments, and enduring prosperity in prime locations.
           </p>
           <Button 
             size="lg" 
-            className="bg-gradient-primary px-16 py-6 text-xl luxury-shadow hover:scale-105 transition-all duration-300 building-card-3d"
+            className="bg-primary text-primary-foreground px-12 py-6 text-lg font-medium minimal-shadow hover:elevated-shadow transition-all duration-300 leo9-scale"
           >
-            Explore Our Properties
+            Explore Properties
           </Button>
         </div>
       </div>

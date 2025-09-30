@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -16,90 +16,91 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", href: "#home" },
-    { name: "Projects", href: "#projects" },
     { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" }
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-white/95 backdrop-blur-xl shadow-lg" 
-          : "bg-transparent"
-      }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled 
+        ? "bg-background/95 backdrop-blur-xl minimal-shadow border-b border-border" 
+        : "bg-transparent"
+    }`}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* Minimal Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-              <span className="text-white font-heading font-bold text-xl">V</span>
+            <div className="w-8 h-8 bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-heading font-bold text-sm">V</span>
             </div>
             <div>
-              <h1 className="font-heading font-bold text-2xl text-secondary">
-                Vastvik Realty
+              <h1 className="font-heading font-bold text-lg text-foreground">
+                VASTVIK
               </h1>
-              <p className="text-xs text-muted-foreground">Premium Homes</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider -mt-1">
+                REALTY
+              </p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-12">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-secondary hover:text-primary transition-colors duration-200 font-medium"
+                className="text-foreground hover:text-primary font-medium text-sm uppercase tracking-wider transition-all duration-300 relative group"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
 
-          {/* Contact Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="text-right">
-              <p className="text-sm font-medium text-secondary">Call Us</p>
-              <p className="text-primary font-bold">8884545404</p>
-            </div>
-            <Button variant="default" size="lg" className="bg-gradient-primary hover:shadow-lg transition-all duration-300">
-              <Phone className="w-4 h-4 mr-2" />
-              Contact
+          {/* Contact Button & Mobile Menu */}
+          <div className="flex items-center space-x-4">
+            <Button
+              variant="outline"
+              size="sm"
+              className="hidden sm:flex items-center space-x-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-xs uppercase tracking-wider font-medium"
+            >
+              <Phone className="w-4 h-4" />
+              <span>8884545404</span>
             </Button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-secondary"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden w-10 h-10 bg-primary flex items-center justify-center text-primary-foreground"
+            >
+              {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-border">
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border minimal-shadow">
             <nav className="flex flex-col space-y-4 p-6">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-secondary hover:text-primary transition-colors duration-200 font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-foreground hover:text-primary font-medium text-sm uppercase tracking-wider py-2 transition-all duration-300"
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-border">
-                <p className="text-sm font-medium text-secondary mb-1">Call Us</p>
-                <p className="text-primary font-bold mb-3">8884545404</p>
-                <Button variant="default" className="w-full bg-gradient-primary">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Contact Us
-                </Button>
-              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-4 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-xs uppercase tracking-wider font-medium self-start"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                8884545404
+              </Button>
             </nav>
           </div>
         )}
