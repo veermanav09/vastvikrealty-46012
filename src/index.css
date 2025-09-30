@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Vastvik Realty Design System - Premium Real Estate */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Custom building cursor */
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/%3E%3C/svg%3E"), auto;
+}
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium Real Estate Color Palette */
+    --background: 0 0% 98%;
+    --foreground: 210 25% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 25% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 25% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Premium Gold Primary */
+    --primary: 43 74% 49%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 43 74% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Elegant Secondary */
+    --secondary: 210 25% 8%;
+    --secondary-foreground: 0 0% 98%;
 
+    /* Muted Tones */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent Colors */
+    --accent: 43 30% 92%;
+    --accent-foreground: 210 25% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 43 74% 49%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(43 74% 49%), hsl(43 74% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 25% 8% / 0.95), hsl(210 25% 8% / 0.8));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(43 30% 98%));
+    
+    /* Shadows */
+    --shadow-luxury: 0 25px 50px -12px hsl(43 74% 49% / 0.25);
+    --shadow-card: 0 10px 25px -5px hsl(210 25% 8% / 0.1);
+    --shadow-glow: 0 0 40px hsl(43 74% 65% / 0.3);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +126,51 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='%23D4AF37'%3E%3Cpath d='M19 9.3V4h-3v2.6L12 3 2 12h3v8h5v-6h4v6h5v-8h3l-3-2.7z'/%3E%3C/svg%3E"), auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  /* Premium animations */
+  .fade-in-scroll {
+    animation: fadeInScroll 0.8s ease-out forwards;
+  }
+
+  .hero-fade {
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .luxury-shadow {
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes fadeInScroll {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
