@@ -102,38 +102,38 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-background to-accent/20">
+    <section id="contact" className="py-24 bg-gradient-mesh building-3d">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 text-primary border-primary">
+        <div className="text-center mb-20 parallax-3d">
+          <Badge variant="outline" className="mb-6 text-primary border-primary floating-3d">
             Get In Touch
           </Badge>
-          <h2 className="font-heading font-bold text-4xl md:text-5xl text-secondary mb-6">
+          <h2 className="font-heading font-bold text-5xl md:text-6xl text-secondary mb-8 depth-layer-2">
             CONTACT US
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto depth-layer-3">
             Ready to find your dream home? Get in touch with our expert team today.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
-          <div>
-            <h3 className="font-heading font-bold text-3xl text-secondary mb-8">
+          <div className="building-3d">
+            <h3 className="font-heading font-bold text-4xl text-secondary mb-12 depth-layer-1">
               Let's Connect
             </h3>
             
-            <div className="space-y-6 mb-8">
+            <div className="space-y-8 mb-12">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-4 p-6 rounded-2xl bg-card card-shadow hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
-                    <info.icon className="w-6 h-6 text-white" />
+                <div key={index} className="flex items-start space-x-6 p-8 rounded-3xl bg-card card-shadow hover:shadow-3d transition-all duration-300 building-card-3d floating-3d" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center flex-shrink-0 morph-3d">
+                    <info.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-secondary mb-2">{info.title}</h4>
-                    <p className="text-muted-foreground mb-3">{info.details}</p>
-                    <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
+                    <h4 className="font-bold text-secondary mb-3 text-xl">{info.title}</h4>
+                    <p className="text-muted-foreground mb-4 text-lg leading-relaxed">{info.details}</p>
+                    <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white building-card-3d">
                       {info.action}
                     </Button>
                   </div>
@@ -142,57 +142,57 @@ const Contact = () => {
             </div>
 
             {/* Download Brochure Section */}
-            <div className="bg-gradient-card rounded-2xl p-8 card-shadow">
-              <h4 className="font-heading font-bold text-2xl text-secondary mb-4">
+            <div className="bg-gradient-card rounded-3xl p-10 card-shadow building-card-3d">
+              <h4 className="font-heading font-bold text-3xl text-secondary mb-6">
                 Download Project Brochure
               </h4>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
                 Get detailed information about our premium projects with floor plans, amenities, and pricing.
               </p>
               
               {!showOtpField ? (
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <Input
                     name="phone"
                     placeholder="Enter your phone number"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="border-primary/30 focus:border-primary"
+                    className="border-primary/30 focus:border-primary py-6 text-lg rounded-2xl"
                   />
                   <Button 
                     onClick={handleSendOtp}
-                    className="w-full bg-gradient-primary hover:shadow-lg transition-all duration-300"
+                    className="w-full bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d py-6 text-lg"
                   >
                     Send OTP
                   </Button>
                 </div>
               ) : !isOtpVerified ? (
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <Input
                     name="otp"
                     placeholder="Enter OTP"
                     value={formData.otp}
                     onChange={handleInputChange}
-                    className="border-primary/30 focus:border-primary"
+                    className="border-primary/30 focus:border-primary py-6 text-lg rounded-2xl"
                   />
                   <Button 
                     onClick={handleVerifyOtp}
-                    className="w-full bg-gradient-primary hover:shadow-lg transition-all duration-300"
+                    className="w-full bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d py-6 text-lg"
                   >
                     Verify OTP
                   </Button>
                 </div>
               ) : (
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-2 text-green-600">
-                    <CheckCircle className="w-5 h-5" />
-                    <span className="font-semibold">Phone number verified!</span>
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-3 text-green-600 p-4 rounded-2xl bg-green-50">
+                    <CheckCircle className="w-6 h-6" />
+                    <span className="font-semibold text-lg">Phone number verified!</span>
                   </div>
                   <Button 
                     onClick={handleDownloadBrochure}
-                    className="w-full bg-gradient-primary hover:shadow-lg transition-all duration-300"
+                    className="w-full bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d py-6 text-lg"
                   >
-                    <Download className="w-4 h-4 mr-2" />
+                    <Download className="w-5 h-5 mr-3" />
                     Download Brochure
                   </Button>
                 </div>
@@ -201,16 +201,16 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div>
-            <div className="bg-card rounded-3xl p-8 card-shadow">
-              <h3 className="font-heading font-bold text-3xl text-secondary mb-8">
+          <div className="building-3d">
+            <div className="bg-card rounded-3xl p-10 card-shadow building-card-3d">
+              <h3 className="font-heading font-bold text-4xl text-secondary mb-12">
                 Send us a Message
               </h3>
               
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-sm font-medium text-secondary mb-2">
+                    <label className="block text-sm font-medium text-secondary mb-3">
                       Full Name *
                     </label>
                     <Input
@@ -218,12 +218,12 @@ const Contact = () => {
                       placeholder="Your full name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="border-primary/30 focus:border-primary"
+                      className="border-primary/30 focus:border-primary py-6 text-lg rounded-2xl"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-secondary mb-2">
+                    <label className="block text-sm font-medium text-secondary mb-3">
                       Phone Number *
                     </label>
                     <Input
@@ -231,14 +231,14 @@ const Contact = () => {
                       placeholder="Your phone number"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="border-primary/30 focus:border-primary"
+                      className="border-primary/30 focus:border-primary py-6 text-lg rounded-2xl"
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary mb-2">
+                  <label className="block text-sm font-medium text-secondary mb-3">
                     Email Address *
                   </label>
                   <Input
@@ -247,29 +247,29 @@ const Contact = () => {
                     placeholder="Your email address"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="border-primary/30 focus:border-primary"
+                    className="border-primary/30 focus:border-primary py-6 text-lg rounded-2xl"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary mb-2">
+                  <label className="block text-sm font-medium text-secondary mb-3">
                     Message
                   </label>
                   <Textarea
                     name="message"
                     placeholder="Tell us about your requirements..."
-                    rows={4}
+                    rows={5}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="border-primary/30 focus:border-primary resize-none"
+                    className="border-primary/30 focus:border-primary resize-none text-lg rounded-2xl"
                   />
                 </div>
 
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-gradient-primary hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d py-6 text-lg"
                 >
                   Send Message
                 </Button>
@@ -279,16 +279,16 @@ const Contact = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16 bg-secondary rounded-3xl p-12 text-white">
-          <h3 className="font-heading font-bold text-4xl mb-4">
+        <div className="text-center mt-20 bg-secondary rounded-3xl p-16 text-white building-card-3d parallax-3d">
+          <h3 className="font-heading font-bold text-5xl mb-6 depth-layer-2">
             IT'S NOW OR NEVER
           </h3>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-2xl mb-10 opacity-90 depth-layer-3">
             Don't miss out on the best investment opportunities in Bangalore
           </p>
           <Button 
             size="lg" 
-            className="bg-gradient-primary px-12 py-4 text-lg luxury-shadow hover:scale-105 transition-all duration-300"
+            className="bg-gradient-primary px-16 py-6 text-xl luxury-shadow hover:scale-105 transition-all duration-300 building-card-3d"
           >
             TALK TO US
           </Button>

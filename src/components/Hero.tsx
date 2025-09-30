@@ -14,19 +14,19 @@ const Hero = () => {
 
   const heroSlides = [
     {
-      title: "BUILDING DREAMS",
-      subtitle: "We Specialize in Crafting Premium Homes that Reflect your Aspirations",
-      cta: "Explore Projects"
+      title: "CRAFTING TOMORROW",
+      subtitle: "Experience the Future of Premium Living with Vastvik Realty's Signature Developments",
+      cta: "Explore Collection"
     },
     {
-      title: "SMART INVESTMENTS",
-      subtitle: "Unlock the Best Opportunities in Bangalore's Real Estate Market",
-      cta: "View Opportunities"
+      title: "MODERN SANCTUARIES",
+      subtitle: "Where Architectural Excellence Meets Contemporary Lifestyle in Bangalore's Prime Locations",
+      cta: "Discover Homes"
     },
     {
-      title: "REDEFINING REAL ESTATE",
-      subtitle: "Designed to Blend Aesthetic Beauty with Modern Functionality",
-      cta: "Discover More"
+      title: "INVESTMENT EVOLUTION",
+      subtitle: "Secure Your Future with Strategic Real Estate Opportunities in Bangalore's Growth Corridors",
+      cta: "View Portfolio"
     }
   ];
 
@@ -40,10 +40,10 @@ const Hero = () => {
   }, []);
 
   const stats = [
-    { icon: Building, value: "200+", label: "Premium Homes" },
-    { icon: Users, value: "500+", label: "Happy Families" },
-    { icon: Award, value: "15+", label: "Awards Won" },
-    { icon: Star, value: "4.9", label: "Customer Rating" }
+    { icon: Building, value: "50+", label: "Premium Homes" },
+    { icon: Users, value: "120+", label: "Happy Families" },
+    { icon: Award, value: "5+", label: "Awards Won" },
+    { icon: Star, value: "4.8", label: "Customer Rating" }
   ];
 
   return (
@@ -64,14 +64,14 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
           style={{
-            transform: `translateY(${scrollY * 0.3}px) scale(1.1)`
+            transform: `translateY(${scrollY * 0.3}px) scale(1.05)`
           }}
+          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop"
         >
-          {/* High-quality construction timelapse video */}
-          <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/3195440/3195440-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-          {/* Fallback for browsers that don't support video */}
-          <div className="w-full h-full bg-gradient-to-br from-secondary to-primary"></div>
+          {/* Construction and architecture videos */}
+          <source src="https://cdn.pixabay.com/video/2022/12/07/142940-777962202_large.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2021/08/03/83962-577586344_large.mp4" type="video/mp4" />
+          <source src="https://player.vimeo.com/external/291648067.hd.mp4?s=94998971682c6a3267e4425413ce223d6228afe8&profile_id=175" type="video/mp4" />
         </video>
         
         {/* Video Controls */}
@@ -86,59 +86,66 @@ const Hero = () => {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-hero" />
 
-      {/* Enhanced 3D floating elements */}
+      {/* Modern 3D floating elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none building-3d">
-        {/* Floating 3D Buildings */}
-        <div className="absolute top-1/4 left-1/4 floating-3d">
-          <div className="w-16 h-24 bg-primary/20 relative building-card-3d">
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-primary/10 rounded-t-sm"></div>
-            <div className="absolute top-2 left-2 w-2 h-2 bg-primary/50 rounded-sm"></div>
-            <div className="absolute top-2 right-2 w-2 h-2 bg-primary/50 rounded-sm"></div>
-            <div className="absolute top-6 left-2 w-2 h-2 bg-primary/50 rounded-sm"></div>
-            <div className="absolute top-6 right-2 w-2 h-2 bg-primary/50 rounded-sm"></div>
+        {/* Floating 3D Architectural Elements */}
+        <div className="absolute top-1/4 left-1/6 floating-3d">
+          <div className="w-20 h-28 bg-gradient-to-t from-primary/30 to-primary/10 relative building-card-3d rounded-lg backdrop-blur-sm">
+            <div className="absolute inset-x-2 top-2 h-1 bg-primary/40 rounded"></div>
+            <div className="absolute inset-x-2 top-5 h-1 bg-primary/40 rounded"></div>
+            <div className="absolute inset-x-2 top-8 h-1 bg-primary/40 rounded"></div>
+            <div className="grid grid-cols-2 gap-1 p-2 mt-12">
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="w-2 h-2 bg-primary/50 rounded-sm"></div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="absolute top-3/4 right-1/4 floating-3d delay-1000">
-          <div className="w-20 h-32 bg-primary-glow/20 relative building-card-3d">
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-glow/30 to-primary-glow/10 rounded-t-sm"></div>
-            {/* Windows */}
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="flex justify-between px-2" style={{ marginTop: `${4 + i * 4}px` }}>
-                <div className="w-1.5 h-1.5 bg-primary-glow/60 rounded-sm"></div>
-                <div className="w-1.5 h-1.5 bg-primary-glow/60 rounded-sm"></div>
-              </div>
-            ))}
+        <div className="absolute top-1/2 right-1/6 morph-3d">
+          <div className="w-24 h-36 bg-gradient-to-br from-primary-glow/25 to-primary/15 relative building-card-3d rounded-xl">
+            <div className="absolute inset-0 bg-gradient-mesh rounded-xl"></div>
+            <div className="grid grid-cols-3 gap-1 p-3">
+              {[...Array(12)].map((_, i) => (
+                <div key={i} className="w-1.5 h-2 bg-primary-glow/60 rounded-sm opacity-80"></div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="absolute top-1/2 left-3/4 floating-3d delay-500">
-          <div className="w-12 h-20 bg-primary/15 relative building-card-3d">
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/25 to-primary/10 rounded-t-sm"></div>
-            <div className="absolute top-2 left-1.5 w-1.5 h-1.5 bg-primary/50 rounded-sm"></div>
-            <div className="absolute top-2 right-1.5 w-1.5 h-1.5 bg-primary/50 rounded-sm"></div>
-            <div className="absolute top-5 left-1.5 w-1.5 h-1.5 bg-primary/50 rounded-sm"></div>
-            <div className="absolute top-5 right-1.5 w-1.5 h-1.5 bg-primary/50 rounded-sm"></div>
+        <div className="absolute bottom-1/4 left-1/3 slide-3d">
+          <div className="w-16 h-24 bg-gradient-to-t from-secondary/20 to-primary/15 relative building-card-3d rounded-lg">
+            <div className="absolute top-2 left-2 right-2 h-0.5 bg-primary/50"></div>
+            <div className="absolute top-4 left-2 right-2 h-0.5 bg-primary/50"></div>
+            <div className="absolute bottom-4 left-2 right-2 grid grid-cols-2 gap-1">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="w-1 h-1 bg-primary/60 rounded-full"></div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Rotating 3D geometric elements */}
-        <div className="absolute top-1/3 right-1/3 rotate-3d">
-          <div className="w-24 h-24 border border-primary/30 rotate-45 building-card-3d"></div>
+        {/* Abstract geometric elements */}
+        <div className="absolute top-1/3 right-1/4 rotate-3d">
+          <div className="w-32 h-32 border-2 border-primary/20 rotate-45 building-card-3d rounded-2xl backdrop-blur-sm"></div>
         </div>
 
-        <div className="absolute bottom-1/3 left-1/3 floating-3d">
-          <div className="w-16 h-16 bg-primary/10 rounded-full blur-xl"></div>
+        <div className="absolute top-2/3 left-1/4 pulse-3d">
+          <div className="w-20 h-20 bg-gradient-to-r from-primary/15 to-primary-glow/15 rounded-full blur-lg"></div>
+        </div>
+
+        <div className="absolute bottom-1/3 right-1/3 floating-3d">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-lg building-card-3d"></div>
         </div>
       </div>
 
       {/* Content with enhanced 3D positioning */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center parallax-3d">
         <div className="max-w-5xl mx-auto">
-          {/* Logo watermark with 3D effect */}
-          <div className="mb-8 floating-3d">
-            <div className="w-24 h-24 mx-auto bg-primary/20 rounded-2xl flex items-center justify-center backdrop-blur-sm building-card-3d">
-              <span className="text-white font-heading font-bold text-4xl depth-layer-1">V</span>
+          {/* Modern brand mark with 3D effect */}
+          <div className="mb-12 floating-3d">
+            <div className="w-28 h-28 mx-auto bg-gradient-to-br from-primary/20 to-secondary/10 rounded-3xl flex items-center justify-center backdrop-blur-sm building-card-3d shadow-3d">
+              <span className="text-white font-heading font-bold text-5xl depth-layer-1 tracking-tight">V</span>
             </div>
           </div>
 
