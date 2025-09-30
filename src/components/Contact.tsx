@@ -109,10 +109,10 @@ const Contact = () => {
           <Badge variant="outline" className="mb-6 text-primary border-primary floating-3d">
             Get In Touch
           </Badge>
-          <h2 className="font-heading font-bold text-5xl md:text-6xl text-secondary mb-8 depth-layer-2">
+          <h2 className="font-heading font-bold text-5xl md:text-6xl text-foreground mb-8 depth-layer-2">
             CONTACT US
           </h2>
-          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto depth-layer-3">
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto depth-layer-3 leading-relaxed">
             Ready to find your dream home? Get in touch with our expert team today.
           </p>
         </div>
@@ -120,7 +120,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div className="building-3d">
-            <h3 className="font-heading font-bold text-4xl text-secondary mb-12 depth-layer-1">
+            <h3 className="font-heading font-bold text-4xl text-foreground mb-12 depth-layer-1">
               Let's Connect
             </h3>
             
@@ -131,7 +131,7 @@ const Contact = () => {
                     <info.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-secondary mb-3 text-xl">{info.title}</h4>
+                    <h4 className="font-bold text-foreground mb-3 text-xl">{info.title}</h4>
                     <p className="text-muted-foreground mb-4 text-lg leading-relaxed">{info.details}</p>
                     <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white building-card-3d">
                       {info.action}
@@ -143,7 +143,7 @@ const Contact = () => {
 
             {/* Download Brochure Section */}
             <div className="bg-gradient-card rounded-3xl p-10 card-shadow building-card-3d">
-              <h4 className="font-heading font-bold text-3xl text-secondary mb-6">
+              <h4 className="font-heading font-bold text-3xl text-foreground mb-6">
                 Download Project Brochure
               </h4>
               <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
@@ -203,14 +203,14 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="building-3d">
             <div className="bg-card rounded-3xl p-10 card-shadow building-card-3d">
-              <h3 className="font-heading font-bold text-4xl text-secondary mb-12">
+              <h3 className="font-heading font-bold text-4xl text-foreground mb-12">
                 Send us a Message
               </h3>
               
               <form className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-sm font-medium text-secondary mb-3">
+                    <label className="block text-sm font-medium text-foreground mb-3">
                       Full Name *
                     </label>
                     <Input
@@ -223,7 +223,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-secondary mb-3">
+                    <label className="block text-sm font-medium text-foreground mb-3">
                       Phone Number *
                     </label>
                     <Input
@@ -238,7 +238,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary mb-3">
+                  <label className="block text-sm font-medium text-foreground mb-3">
                     Email Address *
                   </label>
                   <Input
@@ -253,7 +253,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-secondary mb-3">
+                  <label className="block text-sm font-medium text-foreground mb-3">
                     Message
                   </label>
                   <Textarea
@@ -279,16 +279,16 @@ const Contact = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-20 bg-secondary rounded-3xl p-16 text-white building-card-3d parallax-3d">
+        <div className="text-center mt-20 bg-primary rounded-3xl p-16 text-primary-foreground building-card-3d parallax-3d">
           <h3 className="font-heading font-bold text-5xl mb-6 depth-layer-2">
             IT'S NOW OR NEVER
           </h3>
-          <p className="text-2xl mb-10 opacity-90 depth-layer-3">
+          <p className="text-2xl mb-10 opacity-90 depth-layer-3 leading-relaxed">
             Don't miss out on the best investment opportunities in Bangalore
           </p>
           <Button 
             size="lg" 
-            className="bg-gradient-primary px-16 py-6 text-xl luxury-shadow hover:scale-105 transition-all duration-300 building-card-3d"
+            className="bg-primary-foreground text-primary px-16 py-6 text-xl elevated-shadow hover:scale-105 transition-all duration-300 building-card-3d"
           >
             TALK TO US
           </Button>

@@ -97,9 +97,9 @@ const Chatbot = () => {
               <div className="mb-4">
                 <div className="flex items-center text-primary mb-2">
                   <span className="text-lg">♦</span>
-                  <span className="ml-2 font-semibold">ELEMENT is now open with Model Apartments & Experience Center ready to explore!</span>
+                  <span className="ml-2 font-semibold text-foreground">ELEMENT is now open with Model Apartments & Experience Center ready to explore!</span>
                 </div>
-                <div className="flex items-center text-secondary mb-4">
+                <div className="flex items-center text-foreground mb-4">
                   <span className="text-lg">♦</span>
                   <span className="ml-2">Please call to <span className="text-primary font-bold">8884545404</span> now to Book a Site Visit</span>
                 </div>
@@ -107,7 +107,7 @@ const Chatbot = () => {
 
               {/* Project Selection */}
               <div className="mb-6">
-                <p className="font-semibold text-secondary mb-3">Which project are you interested in?</p>
+                <p className="font-semibold text-foreground mb-3">Which project are you interested in?</p>
                 <div className="grid grid-cols-2 gap-2">
                   {projects.map((project) => (
                     <Button
@@ -118,7 +118,7 @@ const Chatbot = () => {
                       className={`text-sm py-3 ${
                         selectedProject === project 
                           ? "bg-gradient-primary" 
-                          : "border-primary/30 text-secondary hover:bg-primary/10"
+                          : "border-primary/30 text-foreground hover:bg-primary/10"
                       }`}
                     >
                       {project}

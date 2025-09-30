@@ -38,10 +38,10 @@ const Projects = () => {
           <Badge variant="outline" className="mb-6 text-primary border-primary floating-3d">
             Our Portfolio
           </Badge>
-          <h2 className="font-heading font-bold text-5xl md:text-6xl text-secondary mb-8 depth-layer-2">
+          <h2 className="font-heading font-bold text-5xl md:text-6xl text-foreground mb-8 depth-layer-2">
             OUR PROJECTS
           </h2>
-          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto depth-layer-3">
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto depth-layer-3 leading-relaxed">
             Discover our carefully crafted residential projects that blend luxury with modern living
           </p>
         </div>
@@ -79,7 +79,7 @@ const Projects = () => {
                 {/* Project Details */}
                 <div className="p-10">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="font-heading font-bold text-4xl text-secondary">
+                    <h3 className="font-heading font-bold text-4xl text-foreground">
                       {project.name}
                     </h3>
                     <div className="flex items-center text-muted-foreground">
@@ -94,14 +94,14 @@ const Projects = () => {
                       <Bed className="w-6 h-6 text-primary mr-4" />
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">Configuration</p>
-                        <p className="font-semibold text-secondary text-lg">{project.bedrooms}</p>
+                        <p className="font-semibold text-foreground text-lg">{project.bedrooms}</p>
                       </div>
                     </div>
                     <div className="flex items-center building-card-3d p-4 rounded-2xl bg-accent/50">
                       <Users className="w-6 h-6 text-primary mr-4" />
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">Total Units</p>
-                        <p className="font-semibold text-secondary text-lg">{project.units}</p>
+                        <p className="font-semibold text-foreground text-lg">{project.units}</p>
                       </div>
                     </div>
                   </div>
@@ -109,7 +109,7 @@ const Projects = () => {
                   {/* Location */}
                   <div className="flex items-center mb-8 p-4 rounded-2xl bg-gradient-card building-card-3d">
                     <MapPin className="w-6 h-6 text-primary mr-4" />
-                    <p className="text-secondary font-medium text-lg">{project.location}</p>
+                    <p className="text-foreground font-medium text-lg">{project.location}</p>
                   </div>
 
                   {/* Features */}

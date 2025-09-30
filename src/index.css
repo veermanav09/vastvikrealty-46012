@@ -6,9 +6,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* Custom high-rise building cursor */
+/* Premium 3D Building Cursor */
 body {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='%23111827'%3E%3Cpath d='M10 2v2H8v2h2v2H8v2h2v2H8v2h2v2H8v2h2v2H8v2h2v2h6V2h-6zm2 2h2v2h-2V4zm0 4h2v2h-2V8zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z'/%3E%3Cpath d='M6 8v2H4v8h2v2h12v-2h2V10h-2V8H6zm2 2h8v8H8V10z' fill='%234F46E5'/%3E%3C/svg%3E"), auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M8 2h8v20H8V2z' fill='%23000000' stroke='%23666666' stroke-width='0.5'/%3E%3Cpath d='M10 4h4v2h-4V4zm0 3h4v2h-4V7zm0 3h4v2h-4v-2zm0 3h4v2h-4v-2zm0 3h4v2h-4v-2z' fill='%23333333'/%3E%3Cpath d='M6 8h2v14H6V8zm14 0h2v14h-2V8z' fill='%23666666'/%3E%3Cpath d='M4 12h4v10H4V12zm16 0h4v10h-4V12z' fill='%23999999'/%3E%3C/svg%3E"), auto;
 }
 
 @layer base {
@@ -196,6 +196,53 @@ body {
     transform: translateY(100%);
   }
 
+  /* Premium 3D Elements */
+  .building-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .building-card-3d {
+    transform: translateZ(0);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  }
+
+  .building-card-3d:hover {
+    transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  .floating-3d {
+    animation: floating3d 8s ease-in-out infinite;
+  }
+
+  .morph-3d {
+    animation: morph3d 10s ease-in-out infinite;
+  }
+
+  .parallax-3d {
+    transform-style: preserve-3d;
+  }
+
+  .depth-layer-1 {
+    transform: translateZ(30px);
+  }
+
+  .depth-layer-2 {
+    transform: translateZ(20px);
+  }
+
+  .depth-layer-3 {
+    transform: translateZ(10px);
+  }
+
+  /* Glass Effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
   /* Minimalist Grid Lines */
   .grid-lines {
     background-image: 
@@ -266,5 +313,36 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* 3D Animation Keyframes */
+@keyframes floating3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(-3deg) rotateY(-3deg);
+  }
+  75% {
+    transform: translateY(-20px) rotateX(3deg) rotateY(-5deg);
+  }
+}
+
+@keyframes morph3d {
+  0%, 100% {
+    transform: perspective(400px) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+  25% {
+    transform: perspective(400px) rotateX(10deg) rotateY(10deg) scale(1.05);
+  }
+  50% {
+    transform: perspective(400px) rotateX(-5deg) rotateY(-10deg) scale(0.95);
+  }
+  75% {
+    transform: perspective(400px) rotateX(5deg) rotateY(15deg) scale(1.02);
   }
 }
