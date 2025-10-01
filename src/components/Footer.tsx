@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+import vastwikLogo from "@/assets/vastvik-logo.jpeg";
 
 const Footer = () => {
   const quickLinks = [
@@ -31,14 +32,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-                <span className="text-white font-heading font-bold text-xl">V</span>
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-2xl">Vastvik Realty</h3>
-                <p className="text-sm opacity-75">Premium Homes & Smart Investments</p>
-              </div>
+            <div className="mb-6">
+              <img 
+                src={vastwikLogo} 
+                alt="Vastvik Realty" 
+                className="h-16 w-auto object-contain mb-2"
+              />
+              <p className="text-sm opacity-75">Premium Homes & Smart Investments</p>
             </div>
             
             <p className="text-white/80 leading-relaxed mb-6">
@@ -127,7 +127,7 @@ const Footer = () => {
                   <a
                     key={social.name}
                     href={social.href}
-                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300"
+                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-all duration-300"
                     aria-label={social.name}
                   >
                     <social.icon className="w-5 h-5" />

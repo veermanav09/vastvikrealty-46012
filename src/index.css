@@ -6,9 +6,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* Premium 3D Building Cursor */
+/* Vastvik Logo Cursor */
 body {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M8 2h8v20H8V2z' fill='%23000000' stroke='%23666666' stroke-width='0.5'/%3E%3Cpath d='M10 4h4v2h-4V4zm0 3h4v2h-4V7zm0 3h4v2h-4v-2zm0 3h4v2h-4v-2zm0 3h4v2h-4v-2z' fill='%23333333'/%3E%3Cpath d='M6 8h2v14H6V8zm14 0h2v14h-2V8z' fill='%23666666'/%3E%3Cpath d='M4 12h4v10H4V12zm16 0h4v10h-4V12z' fill='%23999999'/%3E%3C/svg%3E"), auto;
+  cursor: url('/src/assets/vastvik-logo.jpeg') 16 16, auto;
 }
 
 @layer base {
@@ -182,7 +182,7 @@ body {
   }
 
   .leo9-float {
-    animation: leo9Float 6s ease-in-out infinite;
+    animation: leo9Float 8s ease-in-out infinite;
   }
 
   .leo9-text-reveal {
@@ -213,11 +213,11 @@ body {
   }
 
   .floating-3d {
-    animation: floating3d 8s ease-in-out infinite;
+    animation: floating3d 10s ease-in-out infinite;
   }
 
   .morph-3d {
-    animation: morph3d 10s ease-in-out infinite;
+    animation: morph3d 12s ease-in-out infinite;
   }
 
   .parallax-3d {
@@ -305,7 +305,7 @@ body {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
   }
 }
 
@@ -321,14 +321,8 @@ body {
   0%, 100% {
     transform: translateY(0px) rotateX(0deg) rotateY(0deg);
   }
-  25% {
-    transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-  }
   50% {
-    transform: translateY(-10px) rotateX(-3deg) rotateY(-3deg);
-  }
-  75% {
-    transform: translateY(-20px) rotateX(3deg) rotateY(-5deg);
+    transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
   }
 }
 

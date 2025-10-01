@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
+import vastwikLogo from "@/assets/vastvik-logo.jpeg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,20 +30,14 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Minimal Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-sm">V</span>
-            </div>
-            <div>
-              <h1 className="font-heading font-bold text-lg text-foreground">
-                VASTVIK
-              </h1>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider -mt-1">
-                REALTY
-              </p>
-            </div>
-          </div>
+          {/* Logo */}
+          <a href="#home" className="flex items-center z-50">
+            <img 
+              src={vastwikLogo} 
+              alt="Vastvik Realty" 
+              className="h-12 w-auto object-contain"
+            />
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-12">
