@@ -26,7 +26,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-secondary text-white pt-16 pb-8">
+    <footer className="bg-primary text-white pt-16 pb-8">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -49,16 +49,16 @@ const Footer = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primary" />
-                <span className="font-semibold text-primary">8884545404</span>
+                <Phone className="w-5 h-5 text-white" />
+                <a href="tel:8884545404" className="font-semibold text-white hover:text-white/80 transition-colors">8884545404</a>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary" />
-                <span>info@vastvikrealty.com</span>
+                <Mail className="w-5 h-5 text-white" />
+                <a href="mailto:info@vastvikrealty.com" className="text-white hover:text-white/80 transition-colors">info@vastvikrealty.com</a>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-primary mt-1" />
-                <span className="text-sm">
+                <MapPin className="w-5 h-5 text-white mt-1" />
+                <span className="text-sm text-white/90">
                   #340, Marsur Gate, Opp M Trees School, 
                   Chandapura-Anekal Main Road, Bengaluru-562106
                 </span>
@@ -92,7 +92,7 @@ const Footer = () => {
                     className={`text-xs ${
                       project.status === "Ongoing" 
                         ? "border-green-400 text-green-400" 
-                        : "border-primary text-primary"
+                        : "border-white text-white"
                     }`}
                   >
                     {project.status}
@@ -114,7 +114,7 @@ const Footer = () => {
                 placeholder="Your email address"
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
-              <Button className="w-full bg-gradient-primary hover:shadow-lg transition-all duration-300">
+              <Button className="w-full bg-white text-primary hover:bg-white/90 hover:shadow-lg transition-all duration-300">
                 Subscribe
               </Button>
             </div>
@@ -127,7 +127,7 @@ const Footer = () => {
                   <a
                     key={social.name}
                     href={social.href}
-                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-all duration-300"
+                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300"
                     aria-label={social.name}
                   >
                     <social.icon className="w-5 h-5" />
@@ -146,13 +146,13 @@ const Footer = () => {
             </p>
             
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-white/60 hover:text-primary transition-colors">
+              <a href="#" className="text-white/60 hover:text-white transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-white/60 hover:text-primary transition-colors">
+              <a href="#" className="text-white/60 hover:text-white transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-white/60 hover:text-primary transition-colors">
+              <a href="#" className="text-white/60 hover:text-white transition-colors">
                 RERA Details
               </a>
             </div>

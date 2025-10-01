@@ -3,6 +3,11 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Bed, Users, IndianRupee, Calendar } from "lucide-react";
 
 const Projects = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const projects = [
     {
       id: 1,
@@ -31,26 +36,26 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 bg-gradient-mesh building-3d">
+    <section id="projects" className="py-24 bg-gradient-subtle">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20 parallax-3d">
-          <Badge variant="outline" className="mb-6 text-primary border-primary floating-3d">
+        <div className="text-center mb-20">
+          <Badge variant="outline" className="mb-6 text-primary border-primary">
             Our Portfolio
           </Badge>
-          <h2 className="font-heading font-bold text-5xl md:text-6xl text-foreground mb-8 depth-layer-2">
+          <h2 className="font-heading font-bold text-5xl md:text-6xl text-foreground mb-8">
             OUR PROJECTS
           </h2>
-          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto depth-layer-3 leading-relaxed">
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Discover our carefully crafted residential projects that blend luxury with modern living
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 building-3d">
+        <div className="grid lg:grid-cols-2 gap-16">
           {projects.map((project, index) => (
-            <div key={project.id} className="group floating-3d" style={{ animationDelay: `${index * 0.5}s` }}>
-              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-3d transition-all duration-500 building-card-3d">
+            <div key={project.id} className="group">
+              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-3d transition-all duration-500">
                 {/* Project Image */}
                 <div className="relative overflow-hidden h-96">
                   <img 
@@ -90,14 +95,14 @@ const Projects = () => {
 
                   {/* Quick Stats */}
                   <div className="grid grid-cols-2 gap-6 mb-8">
-                    <div className="flex items-center building-card-3d p-4 rounded-2xl bg-accent/50">
+                    <div className="flex items-center p-4 rounded-2xl bg-accent/50">
                       <Bed className="w-6 h-6 text-primary mr-4" />
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">Configuration</p>
                         <p className="font-semibold text-foreground text-lg">{project.bedrooms}</p>
                       </div>
                     </div>
-                    <div className="flex items-center building-card-3d p-4 rounded-2xl bg-accent/50">
+                    <div className="flex items-center p-4 rounded-2xl bg-accent/50">
                       <Users className="w-6 h-6 text-primary mr-4" />
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">Total Units</p>
@@ -107,7 +112,7 @@ const Projects = () => {
                   </div>
 
                   {/* Location */}
-                  <div className="flex items-center mb-8 p-4 rounded-2xl bg-gradient-card building-card-3d">
+                  <div className="flex items-center mb-8 p-4 rounded-2xl bg-gradient-card">
                     <MapPin className="w-6 h-6 text-primary mr-4" />
                     <p className="text-foreground font-medium text-lg">{project.location}</p>
                   </div>
@@ -115,7 +120,7 @@ const Projects = () => {
                   {/* Features */}
                   <div className="flex flex-wrap gap-3 mb-8">
                     {project.features.map((feature, index) => (
-                      <Badge key={index} variant="outline" className="text-primary border-primary/30 px-4 py-2 text-sm building-card-3d">
+                      <Badge key={index} variant="outline" className="text-primary border-primary/30 px-4 py-2 text-sm">
                         {feature}
                       </Badge>
                     ))}
@@ -124,14 +129,16 @@ const Projects = () => {
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
-                      className="flex-1 bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d text-lg py-6"
+                      onClick={scrollToContact}
+                      className="flex-1 bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 text-lg py-6"
                       size="lg"
                     >
                       View Details
                     </Button>
                     <Button 
+                      onClick={scrollToContact}
                       variant="outline" 
-                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 building-card-3d text-lg py-6"
+                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-lg py-6"
                       size="lg"
                     >
                       Schedule Visit
@@ -144,13 +151,14 @@ const Projects = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-20 parallax-3d">
-          <p className="text-2xl text-muted-foreground mb-10 depth-layer-3">
+        <div className="text-center mt-20">
+          <p className="text-2xl text-muted-foreground mb-10">
             Interested in learning more about our projects?
           </p>
           <Button 
+            onClick={scrollToContact}
             size="lg" 
-            className="bg-gradient-primary px-16 py-6 text-xl luxury-shadow hover:scale-105 transition-all duration-300 building-card-3d"
+            className="bg-primary text-primary-foreground px-16 py-6 text-xl minimal-shadow hover:elevated-shadow transition-all duration-300"
           >
             View All Projects
           </Button>

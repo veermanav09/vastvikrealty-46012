@@ -105,11 +105,11 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-gradient-mesh building-3d">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-20 parallax-3d">
-          <Badge variant="outline" className="mb-6 text-primary border-primary floating-3d">
+        <div className="text-center mb-20">
+          <Badge variant="outline" className="mb-6 text-primary border-primary">
             Get In Touch
           </Badge>
-          <h2 className="font-heading font-bold text-5xl md:text-6xl text-foreground mb-8 depth-layer-2">
+          <h2 className="font-heading font-bold text-5xl md:text-6xl text-foreground mb-8">
             CONTACT US
           </h2>
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto depth-layer-3 leading-relaxed">
@@ -126,14 +126,14 @@ const Contact = () => {
             
             <div className="space-y-8 mb-12">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-6 p-8 rounded-3xl bg-card card-shadow hover:shadow-3d transition-all duration-300 building-card-3d floating-3d" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center flex-shrink-0 morph-3d">
+                <div key={index} className="flex items-start space-x-6 p-8 rounded-3xl bg-card card-shadow hover:elevated-shadow transition-all duration-300">
+                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0">
                     <info.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-foreground mb-3 text-xl">{info.title}</h4>
                     <p className="text-muted-foreground mb-4 text-lg leading-relaxed">{info.details}</p>
-                    <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white building-card-3d">
+                    <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                       {info.action}
                     </Button>
                   </div>
@@ -142,7 +142,7 @@ const Contact = () => {
             </div>
 
             {/* Download Brochure Section */}
-            <div className="bg-gradient-card rounded-3xl p-10 card-shadow building-card-3d">
+            <div className="bg-gradient-card rounded-3xl p-10 card-shadow">
               <h4 className="font-heading font-bold text-3xl text-foreground mb-6">
                 Download Project Brochure
               </h4>
@@ -161,7 +161,7 @@ const Contact = () => {
                   />
                   <Button 
                     onClick={handleSendOtp}
-                    className="w-full bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d py-6 text-lg"
+                    className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-6 text-lg"
                   >
                     Send OTP
                   </Button>
@@ -177,7 +177,7 @@ const Contact = () => {
                   />
                   <Button 
                     onClick={handleVerifyOtp}
-                    className="w-full bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d py-6 text-lg"
+                    className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-6 text-lg"
                   >
                     Verify OTP
                   </Button>
@@ -190,7 +190,7 @@ const Contact = () => {
                   </div>
                   <Button 
                     onClick={handleDownloadBrochure}
-                    className="w-full bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d py-6 text-lg"
+                    className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-6 text-lg"
                   >
                     <Download className="w-5 h-5 mr-3" />
                     Download Brochure
@@ -201,8 +201,8 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="building-3d">
-            <div className="bg-card rounded-3xl p-10 card-shadow building-card-3d">
+          <div>
+            <div className="bg-card rounded-3xl p-10 card-shadow">
               <h3 className="font-heading font-bold text-4xl text-foreground mb-12">
                 Send us a Message
               </h3>
@@ -269,7 +269,7 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-gradient-primary hover:shadow-3d transition-all duration-300 building-card-3d py-6 text-lg"
+                  className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-6 text-lg"
                 >
                   Send Message
                 </Button>
@@ -279,8 +279,8 @@ const Contact = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-20 bg-primary rounded-3xl p-16 text-primary-foreground building-card-3d parallax-3d">
-          <h3 className="font-heading font-bold text-5xl mb-6 depth-layer-2">
+        <div className="text-center mt-20 bg-primary rounded-3xl p-16 text-primary-foreground">
+          <h3 className="font-heading font-bold text-5xl mb-6">
             IT'S NOW OR NEVER
           </h3>
           <p className="text-2xl mb-10 opacity-90 depth-layer-3 leading-relaxed">
@@ -288,7 +288,7 @@ const Contact = () => {
           </p>
           <Button 
             size="lg" 
-            className="bg-primary-foreground text-primary px-16 py-6 text-xl elevated-shadow hover:scale-105 transition-all duration-300 building-card-3d"
+            className="bg-primary-foreground text-primary px-16 py-6 text-xl minimal-shadow hover:elevated-shadow transition-all duration-300"
           >
             TALK TO US
           </Button>
