@@ -23,11 +23,7 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled 
-        ? "bg-background/95 backdrop-blur-xl minimal-shadow border-b border-border" 
-        : "bg-transparent"
-    }`}>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl minimal-shadow border-b border-border transition-all duration-500">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -59,6 +55,7 @@ const Header = () => {
               variant="outline"
               size="sm"
               className="hidden sm:flex items-center space-x-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-xs uppercase tracking-wider font-medium"
+              onClick={() => window.location.href = 'tel:+918884545404'}
             >
               <Phone className="w-4 h-4" />
               <span>8884545404</span>
@@ -92,6 +89,7 @@ const Header = () => {
                 variant="outline"
                 size="sm"
                 className="mt-4 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-xs uppercase tracking-wider font-medium self-start"
+                onClick={() => window.location.href = 'tel:+918884545404'}
               >
                 <Phone className="w-4 h-4 mr-2" />
                 8884545404

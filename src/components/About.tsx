@@ -59,10 +59,10 @@ const About = () => {
             <span className="text-xs uppercase tracking-wider text-muted-foreground font-medium">About Us</span>
           </div>
           <h2 className="font-heading font-bold text-5xl md:text-7xl text-foreground mb-12 leading-tight">
-            <span style={{ animationDelay: '0.1s' }}>We are a global</span><br/>
-            <span style={{ animationDelay: '0.2s' }}>creative agency that</span><br/>
-            <span style={{ animationDelay: '0.3s' }}>combines design expertise</span><br/>
-            <span style={{ animationDelay: '0.4s' }}>with technology</span>
+            <span style={{ animationDelay: '0.1s' }}>We are a premium</span><br/>
+            <span style={{ animationDelay: '0.2s' }}>real estate developer that</span><br/>
+            <span style={{ animationDelay: '0.3s' }}>transforms architectural vision</span><br/>
+            <span style={{ animationDelay: '0.4s' }}>into living reality</span>
           </h2>
         </div>
 

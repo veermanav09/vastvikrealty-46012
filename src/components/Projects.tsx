@@ -51,11 +51,11 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-16">
+        {/* Projects Grid - Side by Side with Interactive Hover */}
+        <div className="grid lg:grid-cols-2 gap-16 project-hover-container">
           {projects.map((project, index) => (
-            <div key={project.id} className="group">
-              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-3d transition-all duration-500">
+            <div key={project.id} className="project-card group">
+              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-3d transition-all duration-700 transform-gpu">
                 {/* Project Image */}
                 <div className="relative overflow-hidden h-96">
                   <img 

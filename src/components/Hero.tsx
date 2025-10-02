@@ -32,11 +32,11 @@ const Hero = () => {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&h=1080&fit=crop"
+          poster="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&h=1080&fit=crop"
         >
-          <source src="https://cdn.pixabay.com/video/2023/05/06/161329-823901002_large.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2021/08/25/86198-595732946_large.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
       </div>
       
       {/* Minimalist Grid Background */}
