@@ -99,8 +99,8 @@ const About = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-32">
           {features.slice(0, 3).map((feature, index) => (
             <div key={index} className="group leo9-reveal" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-              <div className="p-8 bg-card minimal-shadow hover:elevated-shadow transition-all duration-500 leo9-scale">
-                <div className="w-12 h-12 bg-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="p-8 bg-card elevated-shadow rounded-lg card-tilt hover:bg-accent/50 transition-all duration-500">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-6 float-3d" style={{ animationDelay: `${index * 0.2}s` }}>
                   <feature.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <h4 className="font-heading font-bold text-xl text-foreground mb-4 uppercase tracking-wider">
@@ -117,8 +117,8 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto mb-32">
           {features.slice(3).map((feature, index) => (
             <div key={index + 3} className="group leo9-reveal" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
-              <div className="p-8 bg-card minimal-shadow hover:elevated-shadow transition-all duration-500 leo9-scale">
-                <div className="w-12 h-12 bg-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="p-8 bg-card elevated-shadow rounded-lg card-tilt hover:bg-accent/50 transition-all duration-500">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-6 float-3d" style={{ animationDelay: `${(index + 3) * 0.2}s` }}>
                   <feature.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <h4 className="font-heading font-bold text-xl text-foreground mb-4 uppercase tracking-wider">

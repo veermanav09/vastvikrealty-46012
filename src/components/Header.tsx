@@ -31,7 +31,7 @@ const Header = () => {
             <img 
               src={vastwikLogo} 
               alt="Vastvik Realty" 
-              className="h-12 w-auto object-contain"
+              className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300 mix-blend-multiply"
             />
           </a>
 

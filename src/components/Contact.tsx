@@ -126,8 +126,8 @@ const Contact = () => {
             
             <div className="space-y-8 mb-12">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-6 p-8 rounded-3xl bg-card card-shadow hover:elevated-shadow transition-all duration-300">
-                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0">
+                <div key={index} className="flex items-start space-x-6 p-8 rounded-3xl bg-card elevated-shadow card-tilt hover:bg-accent/50 transition-all duration-500">
+                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0 float-3d" style={{ animationDelay: `${index * 0.15}s` }}>
                     <info.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
@@ -202,7 +202,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <div className="bg-card rounded-3xl p-10 card-shadow">
+            <div className="bg-card rounded-3xl p-10 elevated-shadow premium-lift">
               <h3 className="font-heading font-bold text-4xl text-foreground mb-12">
                 Send us a Message
               </h3>
@@ -279,16 +279,16 @@ const Contact = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-20 bg-primary rounded-3xl p-16 text-primary-foreground">
+        <div className="text-center mt-20 bg-primary rounded-3xl p-16 text-primary-foreground elevated-shadow premium-lift">
           <h3 className="font-heading font-bold text-5xl mb-6">
             IT'S NOW OR NEVER
           </h3>
-          <p className="text-2xl mb-10 opacity-90 depth-layer-3 leading-relaxed">
+          <p className="text-2xl mb-10 opacity-90 leading-relaxed">
             Don't miss out on the best investment opportunities in Bangalore
           </p>
           <Button 
             size="lg" 
-            className="bg-primary-foreground text-primary px-16 py-6 text-xl minimal-shadow hover:elevated-shadow transition-all duration-300"
+            className="bg-primary-foreground text-primary px-16 py-6 text-xl elevated-shadow hover:shadow-2xl transition-all duration-500 hover:scale-105"
           >
             TALK TO US
           </Button>

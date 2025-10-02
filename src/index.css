@@ -305,6 +305,47 @@ body {
     transform: translateY(-20px) rotateX(5deg);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
   }
+
+  .premium-lift-subtle {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .premium-lift-subtle:hover {
+    transform: translateY(-8px);
+  }
+
+  /* 3D Hero Text */
+  .hero-text-3d {
+    text-shadow: 
+      0 1px 0 rgba(255,255,255,0.1),
+      0 2px 0 rgba(255,255,255,0.1),
+      0 3px 0 rgba(255,255,255,0.1),
+      0 4px 0 rgba(255,255,255,0.1),
+      0 5px 10px rgba(0,0,0,0.3),
+      0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Floating Animation */
+  .float-3d {
+    animation: float3d 6s ease-in-out infinite;
+  }
+
+  /* Card Tilt Effect */
+  .card-tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-tilt:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+  }
+
+  /* Glassmorphism */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 @keyframes fadeInScroll {
@@ -373,6 +414,15 @@ body {
   }
   50% {
     transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
+  }
+}
+
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 

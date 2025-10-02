@@ -25,14 +25,15 @@ const Hero = () => {
       style={{ opacity }}
     >
       {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&h=1080&fit=crop"
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+          style={{ minWidth: '100%', minHeight: '100%' }}
         >
           <source src="https://cdn.pixabay.com/video/2021/08/25/86198-595732946_large.mp4" type="video/mp4" />
         </video>
@@ -45,28 +46,28 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto depth-3d">
           
-          {/* Main heading with Leo9 style */}
-          <div className="mb-12 leo9-slide-up">
-            <h1 className="font-heading font-bold text-6xl md:text-8xl lg:text-9xl text-white mb-8 leading-tight tracking-tight drop-shadow-2xl">
+          {/* Main heading with 3D effect */}
+          <div className="mb-12 leo9-slide-up depth-3d-item">
+            <h1 className="font-heading font-bold text-6xl md:text-8xl lg:text-9xl text-white mb-8 leading-tight tracking-tight drop-shadow-2xl hero-text-3d">
               Design Transform Elevate
             </h1>
           </div>
 
           {/* Subtitle */}
-          <div className="leo9-reveal">
+          <div className="leo9-reveal depth-3d-item">
             <p className="text-xl md:text-2xl text-white/90 mb-16 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
               Redefining premium living through architectural excellence and strategic real estate investments in Bangalore
             </p>
           </div>
 
           {/* Clean CTA */}
-          <div className="leo9-reveal">
+          <div className="leo9-reveal depth-3d-item">
             <Button 
               onClick={scrollToProjects}
               size="lg" 
-              className="bg-white text-primary px-12 py-6 text-lg font-medium minimal-shadow hover:elevated-shadow transition-all duration-300 group"
+              className="bg-white text-primary px-12 py-6 text-lg font-medium elevated-shadow hover:shadow-2xl transition-all duration-500 group premium-lift-subtle hover:scale-105"
             >
               Explore Our Portfolio
               <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
