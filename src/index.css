@@ -330,6 +330,10 @@ body {
     animation: scroll-infinite 60s linear infinite;
   }
 
+  .animate-scroll-preview {
+    animation: scroll-preview 20s linear infinite;
+  }
+
   .band-text {
     text-shadow: 
       0 2px 4px rgba(0,0,0,0.3),
@@ -459,6 +463,15 @@ body {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-preview {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
   }
 }
 

@@ -21,20 +21,19 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative h-screen flex items-center justify-center overflow-hidden pt-20"
       style={{ opacity }}
     >
       {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <div className="absolute inset-0 w-full h-full">
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="w-full h-full object-cover"
         >
-          <source src="https://cdn.pixabay.com/video/2021/08/25/86198-595732946_large.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/5377700/5377700-uhd_2560_1440_25fps.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
         
@@ -76,11 +75,14 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Minimal scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/80">
-          <div className="flex flex-col items-center space-y-2">
-            <span className="text-xs uppercase tracking-wider font-medium">Scroll</span>
-            <ChevronDown className="w-5 h-5 animate-bounce" />
+        {/* Infinite Band Preview at Bottom */}
+        <div className="absolute -bottom-20 left-0 right-0">
+          <div className="w-full py-8 bg-primary/95 backdrop-blur-sm overflow-hidden border-y border-white/10">
+            <div className="whitespace-nowrap animate-scroll-preview">
+              <span className="text-4xl md:text-6xl font-heading font-bold text-white/90 tracking-wider inline-block band-text">
+                Welcome to Vastvik Realty • Welcome to Vastvik Realty • Welcome to Vastvik Realty • 
+              </span>
+            </div>
           </div>
         </div>
       </div>
