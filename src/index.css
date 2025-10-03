@@ -325,6 +325,18 @@ body {
       0 10px 20px rgba(0,0,0,0.2);
   }
 
+  /* Infinite Scroll Band */
+  .scroll-band {
+    animation: scroll-infinite 60s linear infinite;
+  }
+
+  .band-text {
+    text-shadow: 
+      0 2px 4px rgba(0,0,0,0.3),
+      0 4px 8px rgba(0,0,0,0.2),
+      0 8px 16px rgba(0,0,0,0.1);
+  }
+
   /* Floating Animation */
   .float-3d {
     animation: float3d 6s ease-in-out infinite;
@@ -438,5 +450,32 @@ body {
   }
   75% {
     transform: perspective(400px) rotateX(5deg) rotateY(15deg) scale(1.02);
+  }
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-30px) translateX(20px);
+  }
+}
+
+@keyframes float-slower {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(40px) translateX(-30px);
   }
 }

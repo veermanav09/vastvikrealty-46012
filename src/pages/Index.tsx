@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import InfiniteScrollBand from "@/components/InfiniteScrollBand";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
@@ -29,6 +30,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Hero />
+      <InfiniteScrollBand />
       <About />
       <Projects />
       <Contact />

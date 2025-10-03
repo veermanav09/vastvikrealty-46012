@@ -32,16 +32,17 @@ const Hero = () => {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover scale-105"
-          style={{ minWidth: '100%', minHeight: '100%' }}
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="https://cdn.pixabay.com/video/2021/08/25/86198-595732946_large.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
+        
+        {/* 3D Floating Overlays */}
+        <div className="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float-slower"></div>
+        <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-white/3 rounded-full blur-2xl animate-float-slow"></div>
       </div>
-      
-      {/* Minimalist Grid Background */}
-      <div className="absolute inset-0 grid-lines opacity-20" />
       
 
       {/* Content */}
