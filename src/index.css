@@ -7,8 +7,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 /* Vastvik Logo Cursor */
-body {
-  cursor: url('/src/assets/vastvik-logo.jpeg') 16 16, auto;
+* {
+  cursor: url('/src/assets/vastvik-logo.jpeg') 16 16, auto !important;
+}
+
+a, button {
+  cursor: url('/src/assets/vastvik-logo.jpeg') 16 16, pointer !important;
 }
 
 @layer base {

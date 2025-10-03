@@ -74,6 +74,24 @@ const Contact = () => {
     });
   };
 
+  const handleContactAction = (index: number) => {
+    switch(index) {
+      case 0: // Phone
+        window.location.href = 'tel:8884545404';
+        break;
+      case 1: // Email
+        window.location.href = 'mailto:info@vastvikrealty.com';
+        break;
+      case 2: // Address
+        window.open('https://maps.google.com/?q=Marsur Gate, Chandapura-Anekal Main Road, Bengaluru-562106', '_blank');
+        break;
+      case 3: // Schedule Visit
+        const contactSection = document.getElementById('contact');
+        contactSection?.scrollIntoView({ behavior: 'smooth' });
+        break;
+    }
+  };
+
   const contactInfo = [
     {
       icon: Phone,
@@ -126,14 +144,19 @@ const Contact = () => {
             
             <div className="space-y-8 mb-12">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-6 p-8 rounded-3xl bg-card elevated-shadow card-tilt hover:bg-accent/50 transition-all duration-500">
-                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0 float-3d" style={{ animationDelay: `${index * 0.15}s` }}>
+                <div key={index} className="flex items-start space-x-6 p-8 rounded-3xl bg-card elevated-shadow hover:bg-accent/50 transition-all duration-500 group">
+                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0">
                     <info.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-foreground mb-3 text-xl">{info.title}</h4>
                     <p className="text-muted-foreground mb-4 text-lg leading-relaxed">{info.details}</p>
-                    <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      onClick={() => handleContactAction(index)}
+                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    >
                       {info.action}
                     </Button>
                   </div>
