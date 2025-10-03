@@ -85,9 +85,9 @@ const Contact = () => {
       case 2: // Address
         window.open('https://maps.google.com/?q=Marsur Gate, Chandapura-Anekal Main Road, Bengaluru-562106', '_blank');
         break;
-      case 3: // Schedule Visit
-        const contactSection = document.getElementById('contact');
-        contactSection?.scrollIntoView({ behavior: 'smooth' });
+      case 3: // Schedule Visit via WhatsApp
+        const message = encodeURIComponent("Hi, I am interested to know more");
+        window.open(`https://wa.me/918884545404?text=${message}`, '_blank');
         break;
     }
   };
@@ -115,7 +115,7 @@ const Contact = () => {
       icon: Clock,
       title: "Office Hours",
       details: "Mon - Sat: 9:00 AM - 7:00 PM",
-      action: "Schedule Visit"
+      action: "Schedule Visit via WhatsApp"
     }
   ];
 
