@@ -135,103 +135,16 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Information */}
-          <div className="building-3d">
-            <h3 className="font-heading font-bold text-4xl text-foreground mb-12 depth-layer-1">
-              Let's Connect
-            </h3>
-            
-            <div className="space-y-8 mb-12">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-6 p-8 rounded-3xl bg-card elevated-shadow hover:bg-accent/50 transition-all duration-500 group">
-                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0">
-                    <info.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-bold text-foreground mb-3 text-xl">{info.title}</h4>
-                    <p className="text-muted-foreground mb-4 text-lg leading-relaxed">{info.details}</p>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      onClick={() => handleContactAction(index)}
-                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                    >
-                      {info.action}
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Download Brochure Section */}
-            <div className="bg-gradient-card rounded-3xl p-10 card-shadow">
-              <h4 className="font-heading font-bold text-3xl text-foreground mb-6">
-                Download Project Brochure
-              </h4>
-              <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-                Get detailed information about our premium projects with floor plans, amenities, and pricing.
-              </p>
-              
-              {!showOtpField ? (
-                <div className="space-y-6">
-                  <Input
-                    name="phone"
-                    placeholder="Enter your phone number"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="border-primary/30 focus:border-primary py-6 text-lg rounded-2xl"
-                  />
-                  <Button 
-                    onClick={handleSendOtp}
-                    className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-6 text-lg"
-                  >
-                    Send OTP
-                  </Button>
-                </div>
-              ) : !isOtpVerified ? (
-                <div className="space-y-6">
-                  <Input
-                    name="otp"
-                    placeholder="Enter OTP"
-                    value={formData.otp}
-                    onChange={handleInputChange}
-                    className="border-primary/30 focus:border-primary py-6 text-lg rounded-2xl"
-                  />
-                  <Button 
-                    onClick={handleVerifyOtp}
-                    className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-6 text-lg"
-                  >
-                    Verify OTP
-                  </Button>
-                </div>
-              ) : (
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-3 text-green-600 p-4 rounded-2xl bg-green-50">
-                    <CheckCircle className="w-6 h-6" />
-                    <span className="font-semibold text-lg">Phone number verified!</span>
-                  </div>
-                  <Button 
-                    onClick={handleDownloadBrochure}
-                    className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-6 text-lg"
-                  >
-                    <Download className="w-5 h-5 mr-3" />
-                    Download Brochure
-                  </Button>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div>
-            <div className="bg-card rounded-3xl p-10 elevated-shadow premium-lift">
-              <h3 className="font-heading font-bold text-4xl text-foreground mb-12">
+        <div className="grid lg:grid-cols-5 gap-12">
+          {/* Contact Form - Takes more space */}
+          <div className="lg:col-span-3">
+            <div className="bg-card rounded-3xl p-12 elevated-shadow premium-lift">
+              <h3 className="font-heading font-bold text-5xl md:text-6xl text-foreground mb-16">
                 Send us a Message
               </h3>
               
-              <form className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-8">
+              <form className="space-y-10">
+                <div className="grid md:grid-cols-2 gap-10">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-3">
                       Full Name *
@@ -292,29 +205,43 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-6 text-lg"
+                  className="w-full bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 py-7 text-xl"
                 >
                   Send Message
                 </Button>
               </form>
             </div>
           </div>
-        </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-20 bg-primary rounded-3xl p-16 text-primary-foreground elevated-shadow premium-lift">
-          <h3 className="font-heading font-bold text-5xl mb-6">
-            IT'S NOW OR NEVER
-          </h3>
-          <p className="text-2xl mb-10 opacity-90 leading-relaxed">
-            Don't miss out on the best investment opportunities in Bangalore
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-primary-foreground text-primary px-16 py-6 text-xl elevated-shadow hover:shadow-2xl transition-all duration-500 hover:scale-105"
-          >
-            TALK TO US
-          </Button>
+          {/* Office Hours Section */}
+          <div className="lg:col-span-2">
+            <div className="bg-card rounded-3xl p-10 elevated-shadow sticky top-24">
+              <h3 className="font-heading font-bold text-3xl text-foreground mb-8">
+                Let's Connect
+              </h3>
+              
+              <div className="flex items-start space-x-6 p-8 rounded-3xl bg-gradient-card">
+                <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-foreground mb-3 text-xl">Office Hours</h4>
+                  <p className="text-muted-foreground mb-6 text-lg leading-relaxed">Mon - Sat: 9:00 AM - 7:00 PM</p>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => {
+                      const message = encodeURIComponent("Hi, I am interested to know more");
+                      window.open(`https://wa.me/918884545404?text=${message}`, '_blank');
+                    }}
+                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    Schedule Visit via WhatsApp
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

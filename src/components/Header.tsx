@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import vastwikLogo from "@/assets/vastvik-logo.jpeg";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +55,49 @@ const Header = () => {
               </a>
             ))}
           </nav>
+
+          {/* Projects Menu - Top Right */}
+          <DropdownMenu open={projectsOpen} onOpenChange={setProjectsOpen}>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="hidden md:flex items-center space-x-2 text-foreground hover:text-primary font-medium text-sm uppercase tracking-wider"
+              >
+                <Menu className="w-4 h-4" />
+                <span>Menu</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${projectsOpen ? 'rotate-180' : ''}`} />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-64 p-4">
+              <div className="space-y-2">
+                <div className="font-bold text-sm uppercase tracking-wider text-muted-foreground mb-3">Projects</div>
+                <DropdownMenuItem className="cursor-pointer text-base py-3">
+                  Ongoing Projects
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer text-base py-3">
+                  Upcoming Projects
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer text-base py-3">
+                  Completed Projects
+                </DropdownMenuItem>
+                
+                <div className="border-t my-3"></div>
+                
+                <DropdownMenuItem className="cursor-pointer text-base py-3">
+                  Careers
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer text-base py-3">
+                  Referral
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer text-base py-3">
+                  About Us
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer text-base py-3">
+                  Blogs
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* Contact Button & Mobile Menu */}
           <div className="flex items-center space-x-4">

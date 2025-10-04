@@ -55,9 +55,9 @@ const Projects = () => {
         <div className="grid lg:grid-cols-2 gap-16 project-hover-container">
           {projects.map((project, index) => (
             <div key={project.id} className="project-card group">
-              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-3d transition-all duration-700 transform-gpu">
+              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-3d transition-all duration-700 transform-gpu hover:scale-105">
                 {/* Project Image */}
-                <div className="relative overflow-hidden h-96">
+                <div className="relative overflow-hidden h-72">
                   <img 
                     src={project.image} 
                     alt={project.name}
@@ -130,18 +130,24 @@ const Projects = () => {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
                       onClick={scrollToContact}
-                      className="flex-1 bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 text-lg py-6"
+                      className="flex-1 bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 text-base py-5"
                       size="lg"
                     >
                       View Details
                     </Button>
                     <Button 
-                      onClick={scrollToContact}
+                      onClick={() => {
+                        // Mock brochure download - replace with actual file
+                        const link = document.createElement('a');
+                        link.href = '#';
+                        link.download = `${project.name}-Brochure.pdf`;
+                        link.click();
+                      }}
                       variant="outline" 
-                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-lg py-6"
+                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-base py-5"
                       size="lg"
                     >
-                      Schedule Visit
+                      Download Brochure
                     </Button>
                   </div>
                 </div>

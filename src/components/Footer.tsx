@@ -50,18 +50,31 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-white" />
-                <a href="tel:8884545404" className="font-semibold text-white hover:text-white/80 transition-colors">8884545404</a>
+                <button 
+                  onClick={() => window.location.href = 'tel:8884545404'}
+                  className="font-semibold text-white hover:text-white/80 transition-colors text-left"
+                >
+                  8884545404
+                </button>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-white" />
-                <a href="mailto:info@vastvikrealty.com" className="text-white hover:text-white/80 transition-colors">info@vastvikrealty.com</a>
+                <button 
+                  onClick={() => window.location.href = 'mailto:info@vastvikrealty.com'}
+                  className="text-white hover:text-white/80 transition-colors text-left"
+                >
+                  info@vastvikrealty.com
+                </button>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-white mt-1" />
-                <span className="text-sm text-white/90">
+                <button 
+                  onClick={() => window.open('https://maps.google.com/?q=Marsur Gate, Chandapura-Anekal Main Road, Bengaluru-562106', '_blank')}
+                  className="text-sm text-white/90 hover:text-white transition-colors text-left"
+                >
                   #340, Marsur Gate, Opp M Trees School, 
                   Chandapura-Anekal Main Road, Bengaluru-562106
-                </span>
+                </button>
               </div>
             </div>
           </div>
