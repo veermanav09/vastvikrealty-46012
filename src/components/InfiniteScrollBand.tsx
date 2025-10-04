@@ -1,25 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const InfiniteScrollBand = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setLastScrollY(scrollY);
-      setScrollY(window.scrollY);
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY.current;
+      
+      // Move left to right when scrolling down (positive delta)
+      // Move right to left when scrolling up (negative delta)
+      setTranslateX(prev => prev + scrollDelta * 0.5);
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrollY]);
+  }, []);
 
   const text = "Welcome to Vastvik Realty";
   const repeatedText = Array(10).fill(text).join(" • ");
-  
-  // Calculate scroll direction and translation (right when scrolling down, left when scrolling up)
-  const isScrollingDown = scrollY > lastScrollY;
-  const translateX = isScrollingDown ? scrollY * 0.1 : -scrollY * 0.1;
 
   return (
     <div className="relative w-full py-8 bg-primary overflow-hidden border-y border-white/10">
@@ -30,7 +31,7 @@ const InfiniteScrollBand = () => {
         className="whitespace-nowrap inline-block"
         style={{
           transform: `translateX(${translateX}px)`,
-          transition: 'transform 1.2s ease-out',
+          transition: 'transform 0.3s ease-out',
           width: '50%'
         }}
       >
