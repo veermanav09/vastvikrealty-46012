@@ -22,9 +22,9 @@ const Hero = () => {
 
   const opacity = Math.max(0.3, 1 - scrollY / 600);
   
-  // Calculate transform for horizontal scroll effect (left when scrolling down, right when scrolling up)
+  // Calculate transform for horizontal scroll effect (right when scrolling down, left when scrolling up)
   const isScrollingDown = scrollY > lastScrollY;
-  const translateX = isScrollingDown ? -scrollY * 0.3 : scrollY * 0.3;
+  const translateX = isScrollingDown ? scrollY * 0.15 : -scrollY * 0.15;
 
   return (
     <section 
@@ -58,19 +58,6 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
         <div className="max-w-6xl mx-auto depth-3d">
-          
-          {/* Welcome text with scroll animation */}
-          <div 
-            className="mb-6 overflow-hidden"
-            style={{
-              transform: `translateX(${translateX}px)`,
-              transition: 'transform 0.8s ease-out'
-            }}
-          >
-            <p className="text-lg md:text-xl text-white/70 font-light tracking-widest uppercase max-w-md mx-auto">
-              Welcome to Vastvik Realty
-            </p>
-          </div>
           
           {/* Main heading with 3D effect */}
           <div className="mb-12 leo9-slide-up depth-3d-item">

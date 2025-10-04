@@ -56,51 +56,8 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Projects Menu - Top Right */}
-          <DropdownMenu open={projectsOpen} onOpenChange={setProjectsOpen}>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                className="hidden md:flex items-center space-x-2 text-foreground hover:text-primary font-medium text-sm uppercase tracking-wider"
-              >
-                <Menu className="w-4 h-4" />
-                <span>Menu</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${projectsOpen ? 'rotate-180' : ''}`} />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-64 p-4">
-              <div className="space-y-2">
-                <div className="font-bold text-sm uppercase tracking-wider text-muted-foreground mb-3">Projects</div>
-                <DropdownMenuItem className="cursor-pointer text-base py-3">
-                  Ongoing Projects
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer text-base py-3">
-                  Upcoming Projects
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer text-base py-3">
-                  Completed Projects
-                </DropdownMenuItem>
-                
-                <div className="border-t my-3"></div>
-                
-                <DropdownMenuItem className="cursor-pointer text-base py-3">
-                  Careers
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer text-base py-3">
-                  Referral
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer text-base py-3">
-                  About Us
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer text-base py-3">
-                  Blogs
-                </DropdownMenuItem>
-              </div>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
           {/* Contact Button & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 ml-auto">
             <Button
               variant="outline"
               size="sm"
@@ -111,12 +68,56 @@ const Header = () => {
               <span>8884545404</span>
             </Button>
 
+            {/* Projects Menu - Extreme Right */}
+            <DropdownMenu open={projectsOpen} onOpenChange={setProjectsOpen}>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="default"
+                  size="sm"
+                  className="hidden md:flex items-center space-x-2 bg-primary text-primary-foreground hover:bg-primary/90 font-medium text-sm uppercase tracking-wider px-6"
+                >
+                  <Menu className="w-5 h-5" />
+                  <span>Menu</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${projectsOpen ? 'rotate-180' : ''}`} />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-72 p-6 bg-background border shadow-lg z-[100]">
+                <div className="space-y-3">
+                  <div className="font-bold text-sm uppercase tracking-wider text-primary mb-4 border-b pb-2">Projects</div>
+                  <DropdownMenuItem asChild className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
+                    <a href="#projects">Ongoing Projects</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
+                    <a href="#projects">Upcoming Projects</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
+                    <a href="#projects">Completed Projects</a>
+                  </DropdownMenuItem>
+                  
+                  <div className="border-t my-4"></div>
+                  
+                  <DropdownMenuItem className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
+                    <a href="#careers" className="w-full">Careers</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
+                    <a href="#referral" className="w-full">Referral</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
+                    <a href="#about">About Us</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
+                    <a href="#blogs" className="w-full">Blogs</a>
+                  </DropdownMenuItem>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden w-10 h-10 bg-primary flex items-center justify-center text-primary-foreground"
+              className="md:hidden w-10 h-10 bg-primary flex items-center justify-center text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
             >
-              {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
