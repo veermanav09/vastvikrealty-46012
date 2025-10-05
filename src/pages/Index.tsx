@@ -33,8 +33,8 @@ const Index = () => {
       <Hero />
       <InfiniteScrollBand />
       <About />
-      <BlogsSection />
       <Projects />
+      <BlogsSection />
       <Contact />
       <Footer />
       <Chatbot />

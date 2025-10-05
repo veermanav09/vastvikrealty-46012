@@ -103,8 +103,8 @@ const Header = () => {
                   <DropdownMenuItem className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
                     <a href="#careers" className="w-full">Careers</a>
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
-                    <a href="#referral" className="w-full">Referral</a>
+                  <DropdownMenuItem asChild className="cursor-pointer text-base py-3 hover:bg-accent rounded-md transition-colors">
+                    <a href="/referral" className="w-full">Referral Program</a>
                   </DropdownMenuItem>
                 </div>
               </DropdownMenuContent>
