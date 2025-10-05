@@ -87,11 +87,15 @@ const About = () => {
           ))}
         </div>
 
-        {/* Large Text Section */}
+        {/* Large Text Section with Fade Effect */}
         <div className="text-center mb-32 leo9-reveal">
-          <h3 className="font-heading font-light text-3xl md:text-4xl text-foreground leading-relaxed max-w-5xl mx-auto">
-            Vastvik Realty specializes in creating exceptional living experiences through innovative design, 
-            quality construction, and strategic locations in Bangalore's most prestigious neighborhoods.
+          <h3 className="font-heading font-light text-3xl md:text-4xl leading-relaxed max-w-5xl mx-auto">
+            <span className="text-foreground">
+              At Vastvik Realty, we're building modern communities for tomorrow. Explore our spacious apartments, luxury villas, and premium plots. Be part of our journey as we grow into{" "}
+            </span>
+            <span className="text-muted-foreground/40">
+              one of Bangalore's leading real estate developers.
+            </span>
           </h3>
         </div>
 

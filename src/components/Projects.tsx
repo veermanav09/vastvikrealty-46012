@@ -87,16 +87,7 @@ const Projects = () => {
                     <h3 className="font-heading font-bold text-3xl text-white mb-2">
                       {project.name}
                     </h3>
-                    <p className="text-white/80 text-sm mb-4">{project.location}</p>
-                    
-                    <Button 
-                      onClick={() => window.open(`/project/${project.id}`, '_blank')}
-                      className="bg-white/90 text-foreground hover:bg-white backdrop-blur-sm transition-all duration-300"
-                      size="sm"
-                    >
-                      View Details
-                      <ExternalLink className="w-4 h-4 ml-2" />
-                    </Button>
+                    <p className="text-white/80 text-sm">{project.location}</p>
                   </div>
 
                   {/* Expand Arrow - Bottom Center */}
