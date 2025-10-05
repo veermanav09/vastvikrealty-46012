@@ -134,7 +134,7 @@ const Projects = () => {
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
-                      onClick={() => navigate(`/project/${project.id}`)}
+                      onClick={() => window.open(`/project/${project.id}`, '_blank')}
                       className="flex-1 bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 text-base py-5"
                       size="lg"
                     >

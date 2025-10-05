@@ -6,83 +6,76 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* Bold V Cursor */
+/* Bold Italic V Cursor */
 * {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48"><text x="20" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="%23000000">V</text></svg>') 20 24, auto !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48"><text x="20" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="900" font-style="italic" fill="%23000000">V</text></svg>') 20 24, auto !important;
 }
 
 a, button {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48"><text x="20" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="%23FF6B35">V</text></svg>') 20 24, pointer !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48"><text x="20" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="900" font-style="italic" fill="%2366C4C0">V</text></svg>') 20 24, pointer !important;
 }
 
 @layer base {
   :root {
-    /* Leo9 Studio Inspired Clean Palette */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 5%;
+    /* Teal/Cyan Inspired Color Palette */
+    --background: 180 40% 97%;
+    --foreground: 190 95% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
+    --card: 180 40% 99%;
+    --card-foreground: 190 95% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover: 180 40% 99%;
+    --popover-foreground: 190 95% 8%;
 
-    /* Minimalist Black Primary */
-    --primary: 0 0% 5%;
+    /* Teal Primary */
+    --primary: 175 60% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 0 0% 15%;
+    --primary-light: 175 50% 60%;
 
-    /* Subtle Gray Secondary */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 5%;
+    /* Subtle Cyan Secondary */
+    --secondary: 180 30% 90%;
+    --secondary-foreground: 190 95% 8%;
 
     /* Neutral Tones */
-    --muted: 0 0% 98%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 180 20% 95%;
+    --muted-foreground: 190 15% 45%;
 
     /* Accent Colors */
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 175 50% 92%;
+    --accent-foreground: 190 95% 8%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 92%;
-    --input: 0 0% 92%;
-    --ring: 0 0% 5%;
+    --border: 180 20% 88%;
+    --input: 180 20% 88%;
+    --ring: 175 60% 45%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Minimal Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 5%), hsl(0 0% 15%));
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100% / 0.95), hsl(0 0% 98% / 0.9));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 99%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 97%));
+    /* Gradient System */
+    --gradient-primary: linear-gradient(135deg, hsl(175 60% 45%), hsl(185 55% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(180 45% 88%), hsl(185 40% 92%));
+    --gradient-card: linear-gradient(135deg, hsl(180 40% 99%), hsl(180 35% 96%));
+    --gradient-subtle: linear-gradient(180deg, hsl(180 40% 97%), hsl(180 35% 94%));
     
-    /* Clean Shadows */
-    --shadow-minimal: 0 1px 3px hsl(0 0% 0% / 0.1);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.05);
-    --shadow-elevated: 0 8px 40px hsl(0 0% 0% / 0.08);
+    /* Shadows */
+    --shadow-minimal: 0 1px 3px hsl(175 40% 20% / 0.1);
+    --shadow-card: 0 4px 20px hsl(175 40% 30% / 0.08);
+    --shadow-elevated: 0 8px 40px hsl(175 40% 30% / 0.12);
 
     /* Typography */
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 180 30% 96%;
+    --sidebar-foreground: 190 50% 20%;
+    --sidebar-primary: 175 60% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 180 30% 92%;
+    --sidebar-accent-foreground: 190 50% 20%;
+    --sidebar-border: 180 20% 88%;
+    --sidebar-ring: 175 60% 45%;
   }
 
   .dark {
