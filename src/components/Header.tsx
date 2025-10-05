@@ -13,11 +13,27 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useState(0);
 
   useEffect(() => {
+    let lastY = 0;
+    
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setScrolled(currentScrollY > 50);
+      
+      // Hide when scrolling up, show when scrolling down
+      if (currentScrollY > lastY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      lastY = currentScrollY;
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -31,7 +47,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl minimal-shadow border-b border-border transition-all duration-500">
+    <header className={`fixed left-0 right-0 z-50 bg-white/95 backdrop-blur-xl minimal-shadow border-b border-border transition-all duration-500 ${isVisible ? 'top-0 opacity-100' : '-top-24 opacity-0'}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}

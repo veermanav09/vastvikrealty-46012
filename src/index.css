@@ -6,13 +6,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* Vastvik Logo Cursor */
+/* Bold V Cursor */
 * {
-  cursor: url('/src/assets/vastvik-logo.jpeg') 16 16, auto !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48"><text x="20" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="%23000000">V</text></svg>') 20 24, auto !important;
 }
 
 a, button {
-  cursor: url('/src/assets/vastvik-logo.jpeg') 16 16, pointer !important;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48"><text x="20" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="%23FF6B35">V</text></svg>') 20 24, pointer !important;
 }
 
 @layer base {
@@ -127,11 +127,6 @@ a, button {
 @layer base {
   * {
     @apply border-border;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><text x="10" y="30" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="%23000000">V</text></svg>'), auto;
-  }
-
-  a, button {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><text x="10" y="30" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="%23000000">V</text></svg>'), pointer;
   }
 
   body {
