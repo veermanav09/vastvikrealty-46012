@@ -48,6 +48,17 @@ const Header = () => {
 
   return (
     <>
+      {/* Fixed Logo - Top Left */}
+      <div className="fixed top-6 left-6 z-50">
+        <a href="#home" className="flex items-center">
+          <img 
+            src={vastwikLogo} 
+            alt="Vastvik Realty" 
+            className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300 mix-blend-multiply"
+          />
+        </a>
+      </div>
+
       {/* Dynamic Island Header */}
       <header 
         className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
