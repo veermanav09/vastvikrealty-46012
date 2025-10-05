@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Bed, Users, IndianRupee, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import DownloadBrochureDialog from "./DownloadBrochureDialog";
 
 const Projects = () => {
   const navigate = useNavigate();
+  const [brochureDialog, setBrochureDialog] = useState<{isOpen: boolean, projectName: string, projectId: number}>({
+    isOpen: false,
+    projectName: "",
+    projectId: 0,
+  });
 
   const projects = [
     {
@@ -134,7 +141,7 @@ const Projects = () => {
                       View Details
                     </Button>
                     <Button 
-                      onClick={() => navigate(`/download-brochure/${project.id}`)}
+                      onClick={() => setBrochureDialog({isOpen: true, projectName: project.name, projectId: project.id})}
                       variant="outline" 
                       className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-base py-5"
                       size="lg"
@@ -165,6 +172,13 @@ const Projects = () => {
           </Button>
         </div>
       </div>
+
+      <DownloadBrochureDialog 
+        isOpen={brochureDialog.isOpen}
+        onClose={() => setBrochureDialog({isOpen: false, projectName: "", projectId: 0})}
+        projectName={brochureDialog.projectName}
+        projectId={brochureDialog.projectId}
+      />
     </section>
   );
 };
