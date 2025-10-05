@@ -127,6 +127,11 @@ a, button {
 @layer base {
   * {
     @apply border-border;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><text x="10" y="30" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="%23000000">V</text></svg>'), auto;
+  }
+
+  a, button {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><text x="10" y="30" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="%23000000">V</text></svg>'), pointer;
   }
 
   body {

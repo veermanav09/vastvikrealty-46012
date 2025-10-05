@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import InfiniteScrollBand from "@/components/InfiniteScrollBand";
 import About from "@/components/About";
+import BlogsSection from "@/components/BlogsSection";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -32,6 +33,7 @@ const Index = () => {
       <Hero />
       <InfiniteScrollBand />
       <About />
+      <BlogsSection />
       <Projects />
       <Contact />
       <Footer />

@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Bed, Users, IndianRupee, Calendar } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Projects = () => {
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const navigate = useNavigate();
 
   const projects = [
     {
@@ -129,20 +127,14 @@ const Projects = () => {
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
-                      onClick={scrollToContact}
+                      onClick={() => navigate(`/project/${project.id}`)}
                       className="flex-1 bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 text-base py-5"
                       size="lg"
                     >
                       View Details
                     </Button>
                     <Button 
-                      onClick={() => {
-                        // Mock brochure download - replace with actual file
-                        const link = document.createElement('a');
-                        link.href = '#';
-                        link.download = `${project.name}-Brochure.pdf`;
-                        link.click();
-                      }}
+                      onClick={() => navigate(`/download-brochure/${project.id}`)}
                       variant="outline" 
                       className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-base py-5"
                       size="lg"
@@ -162,7 +154,10 @@ const Projects = () => {
             Interested in learning more about our projects?
           </p>
           <Button 
-            onClick={scrollToContact}
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              contactSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
             size="lg" 
             className="bg-primary text-primary-foreground px-16 py-6 text-xl minimal-shadow hover:elevated-shadow transition-all duration-300"
           >

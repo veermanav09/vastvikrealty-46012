@@ -11,7 +11,7 @@ const InfiniteScrollBand = () => {
       
       // Move left to right when scrolling down (positive delta)
       // Move right to left when scrolling up (negative delta)
-      setTranslateX(prev => prev + scrollDelta * 0.5);
+      setTranslateX(prev => prev + scrollDelta * 0.8);
       lastScrollY.current = currentScrollY;
     };
 
@@ -31,7 +31,7 @@ const InfiniteScrollBand = () => {
         className="whitespace-nowrap inline-block"
         style={{
           transform: `translateX(${translateX}px)`,
-          transition: 'transform 0.3s ease-out',
+          transition: 'transform 0.1s ease-out',
           width: '50%'
         }}
       >
