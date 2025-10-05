@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Bed, Users, IndianRupee, Calendar } from "lucide-react";
+import { MapPin, Bed, Users, IndianRupee, Calendar, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import DownloadBrochureDialog from "./DownloadBrochureDialog";
 
@@ -12,6 +12,7 @@ const Projects = () => {
     projectName: "",
     projectId: 0,
   });
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const projects = [
     {
@@ -56,103 +57,133 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Grid - Side by Side with Interactive Hover */}
-        <div className="grid lg:grid-cols-2 gap-16 project-hover-container">
-          {projects.map((project, index) => (
-            <div key={project.id} className="project-card group">
-              <div className="card-shadow rounded-3xl overflow-hidden bg-card hover:shadow-3d transition-all duration-700 transform-gpu hover:scale-105">
-                {/* Project Image */}
-                <div className="relative overflow-hidden h-72">
+        {/* Projects Grid - Compact Cards with Expandable Details */}
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {projects.map((project) => {
+            const isExpanded = expandedProject === project.id;
+            
+            return (
+              <div key={project.id} className="group">
+                {/* Compact Card with Image Overlay */}
+                <div className="relative overflow-hidden rounded-3xl h-80 card-shadow hover:shadow-3d transition-all duration-500">
                   <img 
                     src={project.image} 
                     alt={project.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  {/* Status Badge */}
-                  <div className="absolute top-8 left-8">
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  
+                  {/* Content Overlay - Bottom Left */}
+                  <div className="absolute bottom-8 left-8 right-8">
                     <Badge 
                       variant={project.type === "ONGOING" ? "default" : "secondary"}
-                      className={`${project.type === "ONGOING" ? "bg-green-500" : "bg-primary"} text-white px-4 py-2 text-sm font-semibold`}
+                      className={`${project.type === "ONGOING" ? "bg-green-500" : "bg-primary"} text-white px-3 py-1 text-xs font-semibold mb-3`}
                     >
                       {project.type}
                     </Badge>
-                  </div>
-                  {/* Price Tag */}
-                  <div className="absolute top-8 right-8 glass-effect rounded-2xl px-6 py-3">
-                    <div className="flex items-center text-white font-bold text-lg">
-                      <IndianRupee className="w-5 h-5 mr-2" />
-                      {project.price}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Project Details */}
-                <div className="p-10">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="font-heading font-bold text-4xl text-foreground">
+                    
+                    <h3 className="font-heading font-bold text-3xl text-white mb-2">
                       {project.name}
                     </h3>
-                    <div className="flex items-center text-muted-foreground">
-                      <Calendar className="w-5 h-5 mr-3" />
-                      <span className="text-lg">{project.completion}</span>
-                    </div>
-                  </div>
-
-                  {/* Quick Stats */}
-                  <div className="grid grid-cols-2 gap-6 mb-8">
-                    <div className="flex items-center p-4 rounded-2xl bg-accent/50">
-                      <Bed className="w-6 h-6 text-primary mr-4" />
-                      <div>
-                        <p className="text-sm text-muted-foreground mb-1">Configuration</p>
-                        <p className="font-semibold text-foreground text-lg">{project.bedrooms}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center p-4 rounded-2xl bg-accent/50">
-                      <Users className="w-6 h-6 text-primary mr-4" />
-                      <div>
-                        <p className="text-sm text-muted-foreground mb-1">Total Units</p>
-                        <p className="font-semibold text-foreground text-lg">{project.units}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Location */}
-                  <div className="flex items-center mb-8 p-4 rounded-2xl bg-gradient-card">
-                    <MapPin className="w-6 h-6 text-primary mr-4" />
-                    <p className="text-foreground font-medium text-lg">{project.location}</p>
-                  </div>
-
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-3 mb-8">
-                    {project.features.map((feature, index) => (
-                      <Badge key={index} variant="outline" className="text-primary border-primary/30 px-4 py-2 text-sm">
-                        {feature}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4">
+                    <p className="text-white/80 text-sm mb-4">{project.location}</p>
+                    
                     <Button 
                       onClick={() => window.open(`/project/${project.id}`, '_blank')}
-                      className="flex-1 bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300 text-base py-5"
-                      size="lg"
+                      className="bg-white/90 text-foreground hover:bg-white backdrop-blur-sm transition-all duration-300"
+                      size="sm"
                     >
                       View Details
+                      <ExternalLink className="w-4 h-4 ml-2" />
                     </Button>
-                    <Button 
-                      onClick={() => setBrochureDialog({isOpen: true, projectName: project.name, projectId: project.id})}
-                      variant="outline" 
-                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-base py-5"
-                      size="lg"
-                    >
-                      Download Brochure
-                    </Button>
+                  </div>
+
+                  {/* Expand Arrow - Bottom Center */}
+                  <button
+                    onClick={() => setExpandedProject(isExpanded ? null : project.id)}
+                    className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full p-2 transition-all duration-300"
+                    aria-label="Toggle details"
+                  >
+                    {isExpanded ? (
+                      <ChevronUp className="w-5 h-5 text-white" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-white" />
+                    )}
+                  </button>
+                </div>
+
+                {/* Expandable Details Section */}
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ${
+                    isExpanded ? 'max-h-[600px] opacity-100 mt-6' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="bg-card rounded-3xl p-8 card-shadow">
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-3 gap-6 mb-8">
+                      <div className="text-center">
+                        <Bed className="w-6 h-6 text-primary mx-auto mb-2" />
+                        <p className="text-xs text-muted-foreground mb-1">Configuration</p>
+                        <p className="font-semibold text-foreground">{project.bedrooms}</p>
+                      </div>
+                      <div className="text-center">
+                        <Users className="w-6 h-6 text-primary mx-auto mb-2" />
+                        <p className="text-xs text-muted-foreground mb-1">Total Units</p>
+                        <p className="font-semibold text-foreground">{project.units}</p>
+                      </div>
+                      <div className="text-center">
+                        <Calendar className="w-6 h-6 text-primary mx-auto mb-2" />
+                        <p className="text-xs text-muted-foreground mb-1">Completion</p>
+                        <p className="font-semibold text-foreground">{project.completion}</p>
+                      </div>
+                    </div>
+
+                    {/* Location */}
+                    <div className="flex items-center gap-3 mb-6 p-4 rounded-2xl bg-accent/30">
+                      <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-foreground font-medium">{project.location}</p>
+                    </div>
+
+                    {/* Price */}
+                    <div className="flex items-center gap-3 mb-6 p-4 rounded-2xl bg-gradient-card">
+                      <IndianRupee className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-foreground font-bold text-lg">{project.price}</p>
+                    </div>
+
+                    {/* Features */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.features.map((feature, index) => (
+                        <Badge key={index} variant="outline" className="text-primary border-primary/30 text-xs">
+                          {feature}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3">
+                      <Button 
+                        onClick={() => window.open(`/project/${project.id}`, '_blank')}
+                        className="flex-1 bg-primary text-primary-foreground hover:elevated-shadow transition-all duration-300"
+                        size="sm"
+                      >
+                        Full Details
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                      <Button 
+                        onClick={() => setBrochureDialog({isOpen: true, projectName: project.name, projectId: project.id})}
+                        variant="outline" 
+                        className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                        size="sm"
+                      >
+                        Brochure
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Call to Action */}
