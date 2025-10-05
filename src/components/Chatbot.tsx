@@ -3,28 +3,59 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X, Send, MessageCircle, Phone, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [selectedProject, setSelectedProject] = useState("");
+  const [messages, setMessages] = useState<Array<{ role: string; content: string }>>([
+    { role: "assistant", content: "Hello! I'm Vastvik AI assistant. How can I help you today?" }
+  ]);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const projects = [
     "Element - Villas",
-    "High Rise Apartments", 
+    "High Rise Apartments",
     "Upcoming Projects",
     "Request a call"
   ];
 
   const handleProjectSelect = (project: string) => {
     setSelectedProject(project);
+    setMessages(prev => [...prev, 
+      { role: "user", content: `I'm interested in ${project}` },
+      { role: "assistant", content: `Great! I'd be happy to tell you more about ${project}. What would you like to know?` }
+    ]);
   };
 
-  const handleSendMessage = () => {
-    if (message.trim()) {
-      // Handle message sending logic here
-      console.log("Message sent:", message);
+  const handleSendMessage = async () => {
+    if (message.trim() && !isLoading) {
+      const userMessage = message;
       setMessage("");
+      setMessages(prev => [...prev, { role: "user", content: userMessage }]);
+      setIsLoading(true);
+
+      try {
+        const { data, error } = await supabase.functions.invoke('chat', {
+          body: { message: userMessage, selectedProject }
+        });
+
+        if (error) throw error;
+
+        setMessages(prev => [...prev, { role: "assistant", content: data.message }]);
+      } catch (error) {
+        console.error('Error sending message:', error);
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -75,39 +106,33 @@ const Chatbot = () => {
               </div>
             </div>
 
-            {/* Project Image */}
-            <div className="p-6 pb-0">
-              <div className="relative rounded-2xl overflow-hidden mb-4">
-                <img 
-                  src="/api/placeholder/400/200" 
-                  alt="Vastvik Project" 
-                  className="w-full h-32 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-3 left-3 text-white">
-                  <Badge className="bg-primary mb-2">New Launch</Badge>
-                  <p className="font-bold text-sm">Premium Residences Now Available</p>
+            {/* Chat Messages */}
+            <div className="p-6 pt-0 max-h-64 overflow-y-auto space-y-4 mb-4">
+              {messages.map((msg, index) => (
+                <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-[80%] p-3 rounded-2xl ${
+                    msg.role === 'user' 
+                      ? 'bg-primary text-white' 
+                      : 'bg-accent/50 text-foreground'
+                  }`}>
+                    <p className="text-sm">{msg.content}</p>
+                  </div>
                 </div>
-              </div>
+              ))}
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-accent/50 text-foreground p-3 rounded-2xl">
+                    <p className="text-sm">Typing...</p>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Content */}
-            <div className="p-6 pt-0">
-              {/* Project Info */}
-              <div className="mb-4">
-                <div className="flex items-center text-primary mb-2">
-                  <span className="text-lg">♦</span>
-                  <span className="ml-2 font-semibold text-foreground">ELEMENT is now open with Model Apartments & Experience Center ready to explore!</span>
-                </div>
-                <div className="flex items-center text-foreground mb-4">
-                  <span className="text-lg">♦</span>
-                  <span className="ml-2">Please call to <span className="text-primary font-bold">8884545404</span> now to Book a Site Visit</span>
-                </div>
-              </div>
 
+            <div className="p-6 pt-0">
               {/* Project Selection */}
-              <div className="mb-6">
-                <p className="font-semibold text-foreground mb-3">Which project are you interested in?</p>
+              <div className="mb-4">
+                <p className="font-semibold text-foreground mb-3 text-sm">Which project are you interested in?</p>
                 <div className="grid grid-cols-2 gap-2">
                   {projects.map((project) => (
                     <Button
@@ -115,7 +140,7 @@ const Chatbot = () => {
                       variant={selectedProject === project ? "default" : "outline"}
                       size="sm"
                       onClick={() => handleProjectSelect(project)}
-                      className={`text-sm py-3 ${
+                      className={`text-xs py-2 ${
                         selectedProject === project 
                           ? "bg-gradient-primary" 
                           : "border-primary/30 text-foreground hover:bg-primary/10"
@@ -128,13 +153,27 @@ const Chatbot = () => {
               </div>
 
               {/* Quick Actions */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
-                  <Phone className="w-4 h-4 mr-2" />
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="border-primary text-primary hover:bg-primary hover:text-white text-xs"
+                  onClick={() => window.location.href = 'tel:+918884545404'}
+                >
+                  <Phone className="w-3 h-3 mr-2" />
                   Call Now
                 </Button>
-                <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
-                  <User className="w-4 h-4 mr-2" />
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="border-primary text-primary hover:bg-primary hover:text-white text-xs"
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                    setIsOpen(false);
+                  }}
+                >
+                  <User className="w-3 h-3 mr-2" />
                   Site Visit
                 </Button>
               </div>
@@ -152,7 +191,7 @@ const Chatbot = () => {
                   onClick={handleSendMessage}
                   size="sm"
                   className="bg-gradient-primary rounded-full w-10 h-10 p-0"
-                  disabled={!message.trim()}
+                  disabled={!message.trim() || isLoading}
                 >
                   <Send className="w-4 h-4" />
                 </Button>
